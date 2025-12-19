@@ -12,12 +12,9 @@
     .top-nav-inner { max-width: 960px; margin: 0 auto; padding: 0 24px; display: flex; align-items: center; justify-content: space-between; height: 60px; }
     .top-nav-logo { font-size: 20px; font-weight: 700; color: #1e293b; text-decoration: none; cursor: pointer; }
     .top-nav-logo span { color: #10b981; }
-    .top-nav-menu { display: flex; align-items: center; gap: 4px; }
-    .top-nav-menu a { font-size: 14px; font-weight: 500; color: #64748b; text-decoration: none; padding: 8px 16px; border-radius: 8px; transition: all 0.2s ease; cursor: pointer; }
-    .top-nav-menu a:hover { color: #10b981; background: #f1f5f9; }
-    .top-nav-menu a.active { color: #10b981; background: #ecfdf5; font-weight: 600; }
-    .mobile-menu-btn { display: none; background: none; border: none; cursor: pointer; width: 40px; height: 40px; border-radius: 8px; align-items: center; justify-content: center; font-size: 22px; color: #64748b; }
-    .mobile-menu-btn:hover { background: #f1f5f9; }
+    .top-nav-menu { display: none; }
+    .mobile-menu-btn { display: flex; background: none; border: none; cursor: pointer; width: 40px; height: 40px; border-radius: 8px; align-items: center; justify-content: center; font-size: 24px; color: #64748b; }
+    .mobile-menu-btn:hover { background: #f1f5f9; color: #10b981; }
     .mobile-menu-overlay { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.4); z-index: 998; }
     .mobile-menu-overlay.active { display: block; }
     .mobile-menu-panel { position: fixed; top: 0; right: -280px; width: 280px; height: 100%; background: #fff; z-index: 999; transition: right 0.3s ease; box-shadow: -4px 0 20px rgba(0,0,0,0.1); padding: 20px; }
@@ -32,24 +29,16 @@
     .container { width: 100%; max-width: 900px; background: #fff; border-radius: 20px; box-shadow: 0 4px 20px rgba(0,0,0,0.06); padding: 32px; border: 1px solid #e8ecf2; }
     .main-section { display: none; }
     .main-section.active { display: block; }
-    .floating-contact { position: fixed; right: 20px; bottom: 140px; z-index: 850; }
-    .floating-contact-btn { width: 56px; height: 56px; border-radius: 50%; background: linear-gradient(135deg, #10b981 0%, #059669 100%); border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 24px; box-shadow: 0 4px 16px rgba(16,185,129,0.4); transition: all 0.3s ease; }
-    .floating-contact-btn:hover { transform: scale(1.1); box-shadow: 0 6px 20px rgba(16,185,129,0.5); }
-    .floating-contact-panel { position: absolute; right: 0; bottom: 70px; width: 280px; background: #fff; border-radius: 16px; box-shadow: 0 8px 30px rgba(0,0,0,0.15); border: 1px solid #e8ecf2; padding: 20px; display: none; animation: slideUp 0.3s ease; }
-    .floating-contact-panel.active { display: block; }
-    @keyframes slideUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-    .floating-contact-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid #e8ecf2; }
-    .floating-contact-header h3 { font-size: 15px; font-weight: 700; color: #1e293b; margin: 0; display: flex; align-items: center; gap: 6px; }
-    .floating-contact-close { background: none; border: none; font-size: 18px; color: #94a3b8; cursor: pointer; padding: 4px; }
-    .floating-contact-close:hover { color: #64748b; }
-    .floating-contact-item { display: flex; align-items: center; gap: 12px; padding: 12px; background: #f8fafc; border-radius: 10px; margin-bottom: 10px; text-decoration: none; transition: all 0.2s ease; }
-    .floating-contact-item:last-child { margin-bottom: 0; }
-    .floating-contact-item:hover { background: #ecfdf5; }
-    .floating-contact-icon { width: 40px; height: 40px; border-radius: 10px; background: #ecfdf5; display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
-    .floating-contact-info { flex: 1; }
-    .floating-contact-info .label { font-size: 11px; color: #94a3b8; margin-bottom: 2px; }
-    .floating-contact-info .value { font-size: 14px; font-weight: 600; color: #10b981; }
-    .floating-contact-info .sub { font-size: 10px; color: #94a3b8; margin-top: 2px; }
+    /* Floating Contact */
+    .floating-contact { position: fixed; right: 24px; bottom: 140px; z-index: 850; display: flex; flex-direction: column; align-items: flex-end; gap: 10px; }
+    .contact-pill { display: flex; align-items: center; gap: 12px; background: #fff; padding: 10px 18px; border-radius: 50px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); border: 1px solid #e8ecf2; text-decoration: none; transition: all 0.25s ease; cursor: pointer; }
+    .contact-pill.no-link { cursor: default; }
+    .contact-pill:not(.no-link):hover { transform: translateX(-5px); border-color: #10b981; box-shadow: 0 6px 15px rgba(16,185,129,0.12); }
+    .contact-pill .icon { width: 30px; height: 30px; border-radius: 50%; background: #ecfdf5; display: flex; align-items: center; justify-content: center; font-size: 15px; }
+    .contact-pill .info { display: flex; flex-direction: column; }
+    .contact-pill .label { font-size: 10px; color: #94a3b8; font-weight: 600; margin-bottom: 1px; }
+    .contact-pill .value { font-size: 14px; font-weight: 700; color: #1e293b; transition: color 0.2s; }
+    .contact-pill:not(.no-link):hover .value { color: #10b981; }
     .home-header { text-align: center; margin-bottom: 32px; }
     .home-header .home-badge { display: inline-flex; align-items: center; gap: 6px; padding: 6px 14px; border-radius: 50px; font-size: 13px; font-weight: 600; color: #10b981; background: #ecfdf5; margin-bottom: 16px; }
     .home-header h1 { font-size: 28px; font-weight: 700; color: #1e293b; margin: 0 0 12px; }
@@ -189,8 +178,11 @@
     .compare-table td { padding: 12px 10px; text-align: center; color: #475569; border-right: 1px solid #f1f5f9; line-height: 1.4; }
     .compare-table td:last-child { border-right: none; }
     .compare-table td:first-child { font-weight: 700; color: #10b981; background: #ecfdf5; }
-    .compare-table .highlight-row td { background: #f0fdf4; }
-    .compare-table .highlight-row td:first-child { background: #d1fae5; }
+    /* C보험사 열 강조 */
+    .compare-table th:last-child { background: rgba(255,255,255,0.2); font-weight: 700; position: relative; }
+    .compare-table th:last-child::after { content: '⭐'; margin-left: 4px; }
+    .compare-table td:last-child { background: #ecfdf5; font-weight: 700; color: #10b981; font-size: 14px; }
+    .compare-table .highlight-row td:last-child { background: #ecfdf5; }
     .quote-note { margin-top: 16px; padding: 14px 16px; background: #f0fdf4; border-radius: 10px; font-size: 13px; color: #166534; border: 1px solid #bbf7d0; line-height: 1.6; }
     .quote-action { margin-top: 20px; padding: 20px; background: #f8fafc; border-radius: 12px; border: 1px solid #e2e8f0; text-align: center; }
     .quote-action-text { font-size: 14px; color: #475569; margin: 0 0 16px; }
@@ -250,8 +242,6 @@
     }
 
     @media (max-width: 700px) {
-      .top-nav-menu { display: none; }
-      .mobile-menu-btn { display: flex; }
       .container { padding: 22px 18px 26px; border-radius: 16px; }
       h1 { font-size: 20px; }
       .input-grid { grid-template-columns: 1fr; gap: 12px; }
@@ -261,9 +251,10 @@
       .features-grid { grid-template-columns: repeat(2, 1fr); }
       .contact-grid { grid-template-columns: 1fr; }
       .home-header h1 { font-size: 22px; }
-      .floating-contact { right: 16px; bottom: 130px; }
-      .floating-contact-btn { width: 50px; height: 50px; font-size: 22px; }
-      .floating-contact-panel { width: 260px; right: -10px; }
+      .floating-contact { right: 16px; bottom: 130px; gap: 8px; }
+      .contact-pill { padding: 8px 14px; }
+      .contact-pill .icon { width: 26px; height: 26px; font-size: 13px; }
+      .contact-pill .value { font-size: 12px; }
       .compare-table { font-size: 11px; }
       .compare-table th, .compare-table td { padding: 8px 6px; }
       .type-select-row { flex-direction: column; }
@@ -296,8 +287,41 @@
     .purple-theme .consent-all input[type="checkbox"] { accent-color: #7c3aed; }
     .orange-theme .consent-all input[type="checkbox"] { accent-color: #ea580c; }
 
+    /* 해외여행자보험 (Indigo Theme) 스타일 */
+    .indigo-theme .badge.indigo { color: #4f46e5; background: #eef2ff; }
+    .indigo-theme .badge.indigo .badge-dot { background: #4f46e5; }
+    .indigo-theme .inner-menu.indigo a:hover { color: #4f46e5; }
+    .indigo-theme .inner-menu.indigo a.active { color: #4f46e5; border-bottom-color: #4f46e5; }
+    .indigo-theme .step-pill.indigo { background: #4f46e5; }
+    .indigo-theme .btn-primary.indigo { background: #4f46e5; box-shadow: 0 2px 8px rgba(79, 70, 229, 0.25); }
+    .indigo-theme .btn-primary.indigo:hover { background: #4338ca; }
+    .indigo-theme .field input:focus, .indigo-theme .field select:focus, .indigo-theme .field textarea:focus { border-color: #4f46e5; box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1); }
+    .indigo-theme .loading.indigo { color: #4f46e5; }
+    .indigo-theme .accordion-item.active { border-color: #4f46e5; }
+    .indigo-theme .accordion-header::before { background: #4f46e5; }
+    .indigo-theme .consent-all input[type="checkbox"] { accent-color: #4f46e5; }
+    .indigo-theme .consent-item input[type="checkbox"] { accent-color: #4f46e5; }
+    .indigo-theme .consent-item label a { color: #4f46e5; }
+
+    /* 여행자 명단 리스트 스타일 */
+    .traveler-list-wrap { margin-top: 24px; border-top: 1px dashed #cbd5e1; padding-top: 24px; }
+    .traveler-item { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 16px; background: #f8fafc; padding: 20px; border-radius: 12px; border: 1px solid #e2e8f0; position: relative; }
+    .traveler-item .field { flex: 1 1 150px; min-width: 0; gap: 6px; }
+    .traveler-item .field.short { flex: 0 0 80px; }
+    .traveler-item .field.medium { flex: 0 0 170px; }
+    .traveler-item .field.addr-w { flex: 1 1 100%; }
+    .traveler-item label { font-size: 12px; font-weight: 600; color: #475569; }
+    .traveler-item input, .traveler-item select { font-size: 14px; height: 40px; background: #fff; }
+    .btn-add-traveler { width: 100%; margin-top: 8px; border: 2px dashed #4f46e5; background: #f5f7ff; color: #4f46e5; padding: 12px; border-radius: 10px; font-weight: 600; cursor: pointer; transition: all 0.2s ease; display: flex; align-items: center; justify-content: center; gap: 8px; }
+    .btn-add-traveler:hover { background: #eef2ff; border-color: #4338ca; }
+    .btn-remove-traveler { background: #f1f5f9; color: #64748b; border: 1px solid #e2e8f0; width: 26px; height: 26px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 14px; position: absolute; top: 12px; right: 12px; transition: all 0.2s; }
+    .btn-remove-traveler:hover { background: #fee2e2; color: #ef4444; border-color: #fecaca; }
+    .btn-download { padding: 4px 8px; border-radius: 6px; background: #f1f5f9; border: 1px solid #e2e8f0; transition: all 0.2s; }
+    .btn-download:hover { background: #e2e8f0; color: #312e81 !important; }
+
     /* 광고심의/법적 고지 영역 */
-    .ad-disclaimer {
+    .ad-disclaimer { margin-top: 40px; padding: 24px; background: #f8fafc; border-radius: 12px; border: 1px solid #e2e8f0; font-size: 13px; color: #64748b; line-height: 1.6; }
+    .ad-disclaimer p { margin-bottom: 8px; }
   </style>
 </head>
 <body>
@@ -308,6 +332,7 @@
     <nav class="top-nav-menu">
       <a data-section="domestic">국내 행사보험</a>
       <a data-section="global">해외 행사보험</a>
+      <a data-section="travel">해외여행자보험</a>
       <a data-section="geunjae">근재보험</a>
       <a href="https://blog.naver.com/etl23" target="_blank">블로그</a>
     </nav>
@@ -322,34 +347,27 @@
     <a onclick="showSection('home'); toggleMobileMenu();">🏠 E2L 홈</a>
     <a onclick="showSection('domestic'); toggleMobileMenu();">🎪 국내 행사보험</a>
     <a onclick="showSection('global'); toggleMobileMenu();">✈️ 해외 행사보험</a>
+    <a onclick="showSection('travel'); toggleMobileMenu();">🌍 해외여행자보험</a>
     <a onclick="showSection('geunjae'); toggleMobileMenu();">👷 근재보험</a>
     <a href="https://blog.naver.com/etl23" target="_blank">📝 블로그</a>
   </div>
 </div>
 
 <div class="floating-contact">
-  <div class="floating-contact-panel" id="floatingPanel">
-    <div class="floating-contact-header">
-      <h3>📞 고객센터</h3>
-      <button class="floating-contact-close" onclick="toggleFloatingContact()">✕</button>
+  <div class="contact-pill no-link">
+    <div class="icon">📞</div>
+    <div class="info">
+      <span class="label">전화상담 (평일 9시~18시)</span>
+      <span class="value">1533-5013</span>
     </div>
-    <a href="tel:1533-5013" class="floating-contact-item">
-      <div class="floating-contact-icon">📞</div>
-      <div class="floating-contact-info">
-        <div class="label">전화상담</div>
-        <div class="value">1533-5013</div>
-        <div class="sub">평일 9시~18시</div>
-      </div>
-    </a>
-    <a href="mailto:newbiz@simg.kr" class="floating-contact-item">
-      <div class="floating-contact-icon">✉️</div>
-      <div class="floating-contact-info">
-        <div class="label">이메일</div>
-        <div class="value">newbiz@simg.kr</div>
-      </div>
-    </a>
   </div>
-  <button class="floating-contact-btn" onclick="toggleFloatingContact()">📞</button>
+  <a href="mailto:newbiz@simg.kr" class="contact-pill">
+    <div class="icon">✉️</div>
+    <div class="info">
+      <span class="label">이메일문의</span>
+      <span class="value">newbiz@simg.kr</span>
+    </div>
+  </a>
 </div>
 
 <div class="page-wrap">
@@ -375,11 +393,27 @@
           <p>해외 전시회, 박람회, 컨퍼런스 등<br>글로벌 행사 CGL 보험</p>
           <span class="service-link purple">자세히 보기 →</span>
         </div>
+        <div class="service-card" onclick="showSection('travel')">
+          <div class="service-icon indigo">🌍</div>
+          <h3>해외여행자보험</h3>
+          <p>해외 출장, 연수, 단체 여행 등<br>해외 사고 및 질병 보장</p>
+          <span class="service-link indigo">자세히 보기 →</span>
+        </div>
         <div class="service-card" onclick="showSection('geunjae')">
           <div class="service-icon orange">👷</div>
           <h3>근재보험</h3>
           <p>건설현장, 제조업 등<br>근로자 재해보험</p>
           <span class="service-link orange">자세히 보기 →</span>
+        </div>
+        <div class="service-card preparing" style="cursor: default; opacity: 0.7;">
+          <div class="service-icon" style="background: #f1f5f9; color: #94a3b8;">⏳</div>
+          <h3 style="color: #94a3b8;">준비중</h3>
+          <p>더 다양한 보험 상품을<br>준비하고 있습니다.</p>
+        </div>
+        <div class="service-card preparing" style="cursor: default; opacity: 0.7;">
+          <div class="service-icon" style="background: #f1f5f9; color: #94a3b8;">⏳</div>
+          <h3 style="color: #94a3b8;">준비중</h3>
+          <p>전문가와 함께하는<br>새로운 서비스를 기대해주세요.</p>
         </div>
       </div>
       <div class="features-section">
@@ -603,13 +637,157 @@
       </div>
     </div>
 
+    <!-- 해외여행자보험 -->
+    <div id="section-travel" class="main-section indigo-theme">
+      <div class="badge indigo"><span class="badge-dot"></span> 단체 해외여행자보험</div>
+      <h1>해외여행자보험</h1>
+      <p class="desc">해외 출장, 연수, 단체 여행을 위한 최적의 플랜.<br>인원수에 따라 <b class="indigo">필요한 정보를 선택하여 신청</b>해 주세요.</p>
+      
+      <div class="inner-menu indigo" id="travel-tabs">
+        <a class="active" data-tab="travel-quote">견적신청</a>
+        <a data-tab="travel-coverage">보장내용</a>
+        <a data-tab="travel-faq">자주묻는질문</a>
+      </div>
+
+      <div class="tab-wrapper">
+        <div id="travel-quote" class="tab-section active">
+          <div class="step-title"><span class="step-pill indigo">1</span> 신청 구분 선택</div>
+          <div class="card" style="margin-bottom: 16px; text-align: center;">
+            <div class="type-select-row">
+              <button class="btn btn-type active" id="tr-btn-under5" onclick="setTravelType('under5')">5인 미만 (상세 정보 입력)</button>
+              <button class="btn btn-type" id="tr-btn-over5" onclick="setTravelType('over5')">5인 이상 (간편 신청)</button>
+            </div>
+            <p id="tr-type-desc" style="font-size: 12px; color: #64748b; margin-top: 10px;">
+              * 5인 미만은 개별 연락처 및 자택 주소가 포함된 상세 정보를 입력해야 합니다.
+            </p>
+          </div>
+
+          <div class="step-title"><span class="step-pill indigo">2</span> 정보 입력</div>
+          <div class="card">
+            <div class="input-grid">
+              <div class="field"><label>회사명 / 단체명 <span class="required" id="tr-company-req">*</span></label><input type="text" id="tr-company" placeholder="예: (주)이투엘" /></div>
+              <div class="field"><label>담당자 성함 <span class="required">*</span></label><input type="text" id="tr-manager" placeholder="예: 홍길동" /></div>
+              <div class="field"><label>이메일 <span class="required">*</span></label><input type="email" id="tr-email" placeholder="예: example@mail.com" /></div>
+              <div class="field"><label>대표 연락처 <span class="required">*</span></label><input type="tel" id="tr-phone" placeholder="예: 010-1234-5678" /></div>
+              
+              <div class="field"><label>여행 국가 <span class="required">*</span> <span class="sub">(2개국 이상 방문 시 모두 기재)</span></label><input type="text" id="tr-country" placeholder="예: 미국, 일본, 프랑스 등" /></div>
+              <div class="field"><label>여행 목적 <span class="required">*</span></label>
+                <select id="tr-purpose">
+                  <option value="">선택해주세요</option>
+                  <option>일반관광</option>
+                  <option>업무출장</option>
+                  <option>업무연수(현장실습)</option>
+                  <option>어학연수</option>
+                  <option>유학</option>
+                  <option>교환교수</option>
+                  <option>순례</option>
+                  <option>운동경기</option>
+                  <option>골프</option>
+                  <option>스키</option>
+                  <option>등산</option>
+                  <option>봉사활동</option>
+                  <option>상사주재원</option>
+                  <option>기타</option>
+                </select>
+              </div>
+              <div class="field"><label>여행 기간 <span class="required">*</span></label><input type="text" id="tr-period" placeholder="예: 2025.05.01 ~ 05.10" /></div>
+              <div class="field"><label>가입 플랜 <span class="required">*</span></label>
+                <select id="tr-plan">
+                  <option value="">선택해주세요</option>
+                  <option value="economy">실속형</option>
+                  <option value="standard" selected>기본형</option>
+                  <option value="premium">고급형</option>
+                </select>
+              </div>
+              <div class="field"><label>총 인원수 <span class="required">*</span></label><input type="number" id="tr-count" placeholder="예: 1" min="1" onchange="updateTravelerListPlaceholder()" /></div>
+              
+              <!-- 여행자 명단 직접 기재 영역 -->
+              <div class="field full traveler-list-wrap">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                  <label style="margin-bottom: 0;">여행자 명단 리스트 <span class="sub" id="tr-list-guide">(성별, 성명, 주민등록번호, 직업, 휴대폰번호, 자택주소)</span></label>
+                  <a href="javascript:void(0)" onclick="downloadTravelerTemplate()" class="btn-download" style="font-size: 12px; color: #4f46e5; text-decoration: none; display: flex; align-items: center; gap: 4px;">
+                    <span style="font-size: 14px;">📊</span> <span id="tr-excel-text">5인 미만 양식 다운로드</span>
+                  </a>
+                </div>
+                <div id="traveler-items-container">
+                  <!-- JS에서 동적으로 생성됩니다 -->
+                </div>
+                <button type="button" class="btn-add-traveler" onclick="addTraveler()">+ 여행자 추가하기</button>
+                <p style="font-size: 12px; color: #64748b; margin-top: 10px; line-height: 1.5;">
+                  * 인원이 많아 직접 입력이 어려운 경우, 상단 <b>유형별 엑셀 양식</b>을 다운로드하여 작성 후 아래 <b>'참고 파일'</b>에 첨부해 주세요.
+                </p>
+              </div>
+
+              <div class="field full"><label>기타 요청사항</label><textarea id="tr-detail" placeholder="희망 담보 수준이나 기타 문의사항을 입력해주세요."></textarea></div>
+              
+              <div class="field"><label>사업자등록증 <span class="required" id="tr-bizfile-req">*</span></label><input type="file" id="tr-bizfile" accept=".pdf,.jpg,.jpeg,.png" /></div>
+              <div class="field" id="tr-listfile-field"><label>참고 파일 <span class="sub">(추가 서류 있을 시)</span></label><input type="file" id="tr-listfile" accept=".pdf,.jpg,.jpeg,.png,.xls,.xlsx" /></div>
+            </div>
+          </div>
+
+          <div class="consent-wrap">
+            <div class="consent-all">
+              <input type="checkbox" id="tr-all" onchange="toggleAll('tr')" />
+              <label for="tr-all">전체 동의</label>
+            </div>
+            <div class="consent-item">
+              <input type="checkbox" id="tr-consent" onchange="checkAll('tr')" />
+              <label for="tr-consent"><b>[필수]</b> <a href="javascript:openPrivacyModal()">개인정보 수집 및 이용</a>에 동의합니다.</label>
+            </div>
+            <div class="consent-item">
+              <input type="checkbox" id="tr-consent2" onchange="checkAll('tr')" />
+              <label for="tr-consent2"><b>[필수]</b> <a href="javascript:openPrivacyModal()">개인정보 제3자 제공</a>에 동의합니다.</label>
+            </div>
+            <div class="consent-item">
+              <input type="checkbox" id="tr-marketing" onchange="checkAll('tr')" />
+              <label for="tr-marketing"><b>[선택]</b> 마케팅 정보 수신에 동의합니다.</label>
+            </div>
+          </div>
+
+          <div class="btn-row">
+            <button class="btn btn-primary indigo" onclick="submitForm('travel')">📋 견적 신청하기</button>
+            <button class="btn btn-secondary" onclick="resetForm('travel')">↺ 초기화</button>
+            <span id="tr-msg" class="msg"></span>
+            <span id="tr-loading" class="loading indigo"><span class="loading-dot"></span> 처리 중...</span>
+          </div>
+        </div>
+
+        <div id="travel-coverage" class="tab-section coverage-section">
+          <h2>🛡️ 주요 보장내용</h2>
+          <p class="coverage-intro">해외여행 중 발생할 수 있는 사고와 질병에 대해 종합적으로 보장합니다.</p>
+          <table class="coverage-table">
+            <thead><tr><th>담보</th><th>내용</th></tr></thead>
+            <tbody>
+              <tr><td>해외상해사망/후유장해</td><td>여행 중 상해사고로 인한 사망 또는 장해 발생 시 보상</td></tr>
+              <tr><td>해외질병사망/후유장해</td><td>여행 중 발생한 질병으로 인한 사망 또는 장해 발생 시 보상</td></tr>
+              <tr><td>해외상해/질병 의료비</td><td>해외 현지 의료기관에서 지출한 실제 의료비 보상</td></tr>
+              <tr><td>배상책임</td><td>타인의 신체나 재물에 손해를 끼쳐 부담하는 법적 책임 보상</td></tr>
+              <tr><td>휴대품 손해</td><td>도난, 파손 등으로 인한 휴대품 손해 보상 (분실 제외)</td></tr>
+              <tr><td>여권분실 재발급비용</td><td>여권 분실 시 재발급에 소요되는 비용 보상</td></tr>
+              <tr><td>항공기 지연/결항</td><td>항공편 지연 등으로 발생하는 추가 비용 보상 (약관 기준)</td></tr>
+            </tbody>
+          </table>
+          <div class="coverage-note">⚠️ 모든 보장은 가입하신 <b>플랜 및 해당 약관</b>에 따라 제한될 수 있습니다.</div>
+        </div>
+
+        <div id="travel-faq" class="tab-section faq-section">
+          <h2>❓ 자주 묻는 질문</h2>
+          <div class="accordion-item"><button class="accordion-header">가입 시 어떤 정보가 필요한가요?</button><div class="accordion-content"><p>여행자 전원의 <b>성명과 주민등록번호(또는 생년월일)</b>가 필요합니다. 단체 가입의 경우 엑셀 리스트로 전달해 주시면 빠른 처리가 가능합니다.</p></div></div>
+          <div class="accordion-item"><button class="accordion-header">현지에서 병원을 갔을 때 어떻게 청구하나요?</button><div class="accordion-content"><p>진료비 영수증, 진단서(또는 처방전)를 반드시 챙겨오셔야 합니다. 귀국 후 보험금 청구 서류와 함께 접수하시면 됩니다.</p></div></div>
+          <div class="accordion-item"><button class="accordion-header">휴대품 분실도 보상되나요?</button><div class="accordion-content"><p><b>단순 분실(어디 뒀는지 모름 등)은 보상되지 않습니다.</b> 도난의 경우 현지 경찰서의 폴리스 리포트가 필요하며, 파손의 경우 사진 증빙이 필요합니다.</p></div></div>
+          <div class="accordion-item"><button class="accordion-header">출국 후에 가입할 수 있나요?</button><div class="accordion-content"><p>안타깝게도 모든 여행자보험은 <b>출국 전(인천공항 등)</b>에만 가입이 가능합니다.</p></div></div>
+        </div>
+      </div>
+    </div>
+
     <!-- 근재보험 -->
     <div id="section-geunjae" class="main-section orange-theme">
       <div class="badge orange"><span class="badge-dot"></span> 국내근로자재해보장보험</div>
       <h1>근재보험</h1>
       <p class="desc">직원이 업무 중 다치거나 사고가 났을 때, 산재보험으로 부족한 부분을<br><b class="orange">사업주를 위해 보장</b>해주는 민간 보험입니다.</p>
-      <div class="inner-menu orange">
+      <div class="inner-menu orange" id="geunjae-tabs">
         <a class="active" data-tab="geunjae-quote">견적신청</a>
+        <a data-tab="geunjae-apply">가입신청</a>
         <a data-tab="geunjae-coverage">보장내용</a>
         <a data-tab="geunjae-faq">자주묻는질문</a>
       </div>
@@ -621,16 +799,13 @@
               <div class="field"><label>회사명 <span class="required">*</span></label><input type="text" id="gj-company" placeholder="예: (주)홍길동건설" /></div>
               <div class="field"><label>사업자등록번호 <span class="required">*</span></label><input type="text" id="gj-bizno" placeholder="예: 123-45-67890" /></div>
               <div class="field"><label>계약 유형 <span class="required">*</span></label><select id="gj-type"><option value="">선택해주세요</option><option>연간계약 (1년 단위)</option><option>구간계약 (공사/프로젝트 단위)</option></select></div>
-              <div class="field"><label>업종 <span class="required">*</span></label><select id="gj-industry"><option value="">선택해주세요</option><option>건설업</option><option>제조업</option><option>물류/운송업</option><option>서비스업</option><option>기타</option></select></div>
-              <div class="field"><label>담당자명 <span class="required">*</span></label><input type="text" id="gj-manager" placeholder="예: 홍길동" /></div>
-              <div class="field"><label>연락처 <span class="required">*</span></label><input type="tel" id="gj-phone" placeholder="예: 010-1234-5678" /></div>
+              <div class="field"><label>업종 <span class="required">*</span></label><select id="gj-industry"><option value="">선택해주세요</option><optgroup label="광업"><option value="0.00456">석탄광업</option><option value="0.00429">금속 및 비금속광업</option><option value="0.00456">채석업</option><option value="0.00403">석회석광업</option><option value="0.00056">제염업</option><option value="0.00403">기타광업</option><option value="0.00244">연탄 및 응집고체연료 생산업</option></optgroup><optgroup label="제조업"><option value="0.00092">식료품제조업</option><option value="0.00048">담배제조업</option><option value="0.00067">섬유 또는 섬유제품제조업</option><option value="0.00115">제재 및 베니어판 제조업</option><option value="0.00092">화학제품제조업</option><option value="0.00027">의약품 및 화장품향료 제조업</option><option value="0.00115">코크스 및 석탄가스 제조업</option><option value="0.00092">고무제품 제조업</option><option value="0.00077">유리제조업</option><option value="0.00092">요업 또는 토석제품 제조업</option><option value="0.00067">비금속광물제품제조업</option><option value="0.00092">금속제련업</option><option value="0.00135">금속재료품제조업</option><option value="0.00115">금속제품제조업 또는 금속가공업</option><option value="0.00092">기계기구제조업</option><option value="0.00077">전기기계기구제조업</option><option value="0.00115">선박건조 및 수리업</option><option value="0.00092">수송용기계기구제조업</option><option value="0.00048">계량기·광학기계 및 기타 정밀기구 제조업</option><option value="0.00027">수제품제조업</option><option value="0.00092">기타제조업</option></optgroup><optgroup label="전기·가스·수도사업"><option value="0.00052">전기 및 가스업</option><option value="0.00059">수도업</option></optgroup><optgroup label="건설업"><option value="0.00144">일반건설공사</option><option value="0.00214">중건설공사</option><option value="0.00189">철도 또는 궤도신설공사</option><option value="0.00118">일반건설공사(건축건설공사)</option></optgroup><optgroup label="운수·창고 및 통신업"><option value="0.00054">철도·궤도 및 삭도 운수업</option><option value="0.00052">자동차여객운수업</option><option value="0.00063">화물자동차 운수업</option><option value="0.00037">항공운수업</option><option value="0.00063">화물취급사업</option><option value="0.00052">창고업</option><option value="0.00013">통신업</option></optgroup><optgroup label="임업"><option value="0.0059">벌목업</option><option value="0.00123">기타의 임업</option></optgroup><optgroup label="어업"><option value="0.00219">해면어업</option><option value="0.00046">기타의 어업</option></optgroup><optgroup label="농업"><option value="0.000147">일반농업</option><option value="0.00068">기계화농업</option></optgroup><optgroup label="기타의 사업"><option value="0.00035">농수산물 위탁판매업</option><option value="0.00022">고층건물등의 종합관리사업</option><option value="0.00068">위생 및 유사서비스업</option><option value="0.00066">건설기계관리사업</option><option value="0.00022">골프장 및 경마장운영업</option><option value="0.000085">기타의 각종사업</option></optgroup></select></div>
               <div class="field"><label>이메일 <span class="required">*</span></label><input type="email" id="gj-email" placeholder="예: example@mail.com" /></div>
               <div class="field"><label>예상 근로자 수</label><input type="number" id="gj-workers" placeholder="예: 50" min="1" /></div>
-              <div class="field"><label>연간 임금총액 <span class="sub">(원)</span></label><input type="text" id="gj-wage" placeholder="예: 500,000,000" /></div>
+              <div class="field"><label>연간 임금총액 <span class="sub">(원)</span></label><input type="text" id="gj-wage" placeholder="예: 500,000,000" oninput="formatNumber(this)" /></div>
+              <div class="field"><label>보상한도 <span class="sub">(선택)</span></label><select id="gj-limit"><option value="1.00">인당 1천만원 / 총 1천만원</option><option value="1.60">인당 2천만원 / 총 2천만원</option><option value="2.33" selected>인당 5천만원 / 총 5천만원 (추천)</option><option value="2.67">인당 1억원 / 총 1억원</option><option value="3.26">인당 2억원 / 총 2억원</option></select></div>
               <div class="field"><label>보험기간</label><input type="text" id="gj-period" placeholder="예: 2025.01.01 ~ 2025.12.31" /></div>
               <div class="field full"><label>요청사항 / 기타</label><textarea id="gj-detail" placeholder="공사명, 현장 위치, 하도급 여부, 특이사항 등"></textarea></div>
-              <div class="field"><label>사업자등록증 <span class="required">*</span></label><input type="file" id="gj-bizfile" accept=".pdf,.jpg,.jpeg,.png" /></div>
-              <div class="field"><label>손익계산서/임금대장 <span class="sub">(해당 시)</span></label><input type="file" id="gj-wagefile" accept=".pdf,.jpg,.jpeg,.png,.xls,.xlsx" /></div>
             </div>
           </div>
                    <div class="consent-wrap">
@@ -656,6 +831,70 @@
             <button class="btn btn-secondary" onclick="resetForm('geunjae')">↺ 초기화</button>
             <span id="gj-msg" class="msg"></span>
             <span id="gj-loading" class="loading orange"><span class="loading-dot"></span> 처리 중...</span>
+          </div>
+          <div id="gj-result" class="quote-result">
+            <h3>📊 예상 보험료</h3>
+            <div class="quote-note" style="background: #fff7ed; border-color: #fed7aa; color: #9a3412; margin-bottom: 20px;">
+              💡 <b>안내:</b> 아래 보험료는 입력하신 정보 기준 예상 금액이며, 실제 보험료는 과거 사고이력, 보험사 심사 결과에 따라 달라질 수 있습니다.
+            </div>
+            <div class="quote-action" style="background: #fff7ed; border-radius: 12px; padding: 24px; border: 1px solid #fed7aa; text-align: center; margin-bottom: 20px;">
+              <div style="font-size: 24px; font-weight: 700; color: #ea580c; margin-bottom: 8px;" id="gj-premium-amount">-</div>
+              <div style="font-size: 13px; color: #9a3412;" id="gj-premium-detail">계산 중...</div>
+            </div>
+            <div class="quote-action" style="background: #f8fafc; border-radius: 12px; padding: 24px; border: 1px solid #e2e8f0; text-align: center;">
+              <p class="quote-action-text" style="font-size: 14px; color: #475569; margin: 0 0 20px;">
+                아래 가입신청 하면 담당자가 영업일 1~3일 내에 연락드리며, 상세한 보험료 견적을 안내해드립니다.
+              </p>
+              <button class="btn btn-primary orange" onclick="goToGeunjaeApplyDirect()" style="width: auto; min-width: 200px;">
+                📝 가입 신청 바로가기
+              </button>
+            </div>
+          </div>
+        </div>
+        <div id="geunjae-apply" class="tab-section">
+          <div class="step-title"><span class="step-pill orange">1</span> 가입 정보 입력</div>
+          <div class="card">
+            <div class="input-grid">
+              <div class="field"><label>회사명 <span class="required">*</span></label><input type="text" id="gja-company" placeholder="예: (주)홍길동건설" /></div>
+              <div class="field"><label>사업자등록번호 <span class="required">*</span></label><input type="text" id="gja-bizno" placeholder="예: 123-45-67890" /></div>
+              <div class="field"><label>계약 유형 <span class="required">*</span></label><select id="gja-type"><option value="">선택해주세요</option><option>연간계약 (1년 단위)</option><option>구간계약 (공사/프로젝트 단위)</option></select></div>
+              <div class="field"><label>업종 <span class="required">*</span></label><select id="gja-industry"><option value="">선택해주세요</option><option>건설업</option><option>제조업</option><option>물류/운송업</option><option>서비스업</option><option>기타</option></select></div>
+              <div class="field"><label>담당자명 <span class="required">*</span></label><input type="text" id="gja-manager" placeholder="예: 홍길동" /></div>
+              <div class="field"><label>연락처 <span class="required">*</span></label><input type="tel" id="gja-phone" placeholder="예: 010-1234-5678" /></div>
+              <div class="field"><label>이메일 <span class="required">*</span></label><input type="email" id="gja-email" placeholder="예: example@mail.com" /></div>
+              <div class="field"><label>예상 근로자 수</label><input type="number" id="gja-workers" placeholder="예: 50" min="1" /></div>
+              <div class="field"><label>연간 임금총액 <span class="sub">(원)</span></label><input type="text" id="gja-wage" placeholder="예: 500,000,000" /></div>
+              <div class="field"><label>보험기간 <span class="required">*</span></label><input type="text" id="gja-period" placeholder="예: 2025.01.01 ~ 2025.12.31" /></div>
+              <div class="field full"><label>요청사항 / 선택한 보상한도</label><textarea id="gja-detail" placeholder="공사명, 현장 위치, 하도급 여부, 특이사항, 선택한 보상한도 등"></textarea></div>
+              <div class="field"><label>사업자등록증 <span class="required">*</span></label><input type="file" id="gja-bizfile" accept=".pdf,.jpg,.jpeg,.png" /></div>
+              <div class="field"><label>손익계산서/임금대장 <span class="sub">(연간계약 시 필수)</span></label><input type="file" id="gja-wagefile" accept=".pdf,.jpg,.jpeg,.png,.xls,.xlsx" /></div>
+              <div class="field"><label>(하)도급계약서 <span class="sub">(구간계약 시 필수)</span></label><input type="file" id="gja-subfile" accept=".pdf,.jpg,.jpeg,.png" /></div>
+              <div class="field"><label>공사비(인건비) 내역서 <span class="sub">(구간계약 시 필수)</span></label><input type="file" id="gja-costfile" accept=".pdf,.jpg,.jpeg,.png,.xls,.xlsx" /></div>
+            </div>
+          </div>
+          <div class="consent-wrap">
+            <div class="consent-all">
+              <input type="checkbox" id="gja-all" onchange="toggleAll('gja')" />
+              <label for="gja-all">전체 동의</label>
+            </div>
+            <div class="consent-item">
+              <input type="checkbox" id="gja-consent" onchange="checkAll('gja')" />
+              <label for="gja-consent"><b>[필수]</b> <a href="javascript:openPrivacyModal()">개인정보 수집 및 이용</a>에 동의합니다.</label>
+            </div>
+            <div class="consent-item">
+              <input type="checkbox" id="gja-consent2" onchange="checkAll('gja')" />
+              <label for="gja-consent2"><b>[필수]</b> <a href="javascript:openPrivacyModal()">개인정보 제3자 제공</a>에 동의합니다.</label>
+            </div>
+            <div class="consent-item">
+              <input type="checkbox" id="gja-marketing" onchange="checkAll('gja')" />
+              <label for="gja-marketing"><b>[선택]</b> 마케팅 정보 수신에 동의합니다.</label>
+            </div>
+          </div>
+          <div class="btn-row">
+            <button class="btn btn-primary orange" onclick="submitGeunjaeApply()">📝 가입 신청하기</button>
+            <button class="btn btn-secondary" onclick="resetGeunjaeApply()">↺ 초기화</button>
+            <span id="gja-msg" class="msg"></span>
+            <span id="gja-loading" class="loading orange"><span class="loading-dot"></span> 처리 중...</span>
           </div>
         </div>
         <div id="geunjae-coverage" class="tab-section coverage-section">
@@ -702,30 +941,20 @@
       <h3>개인정보 수집 및 이용 동의(요약)</h3>
       <button class="modal-close" onclick="closePrivacyModal()">&times;</button>
     </div>
-    <div class="modal-content">
+    <div class="modal-content" id="privacy-modal-body">
+      <!-- 이 부분의 내용이 보험 종류에 따라 동적으로 변경됩니다 -->
       <h4>1. 수집하는 개인정보 항목</h4>
       <ul>
-        <li>필수항목: 회사명, 담당자명, 연락처, 이메일, 행사정보(행사명, 기간, 장소, 인원 등)</li>
-        <li>선택항목: 사업자등록번호, 첨부파일(사업자등록증, 행사개요서 등), 기타 요청사항</li>
+        <li>필수항목: 회사명, 담당자명, 연락처, 이메일, 행사정보 등</li>
+        <li>선택항목: 사업자등록번호, 첨부파일, 기타 요청사항</li>
       </ul>
       <h4>2. 개인정보의 수집 및 이용 목적</h4>
       <ul>
         <li>보험료 산출 및 맞춤 견적 제공</li>
-        <li>보험 가입 상담, 가입 가능 여부 확인 및 계약 진행</li>
-        <li>문의사항 응대 및 관련 서비스 안내</li>
+        <li>보험 가입 상담 및 계약 진행</li>
       </ul>
       <h4>3. 개인정보의 보유 및 이용 기간</h4>
-      <p>수집된 개인정보는 서비스 제공 및 분쟁 대응을 위하여 <b>최대 3년간</b> 보관 후 지체 없이 파기합니다. 단, 관련 법령에서 별도의 보존기간을 정한 경우 해당 기간 동안 보관합니다.</p>
-      <h4>4. 개인정보의 제3자 제공</h4>
-      <p>보험 계약 체결 및 보험료 산출을 위해 아래와 같이 제3자에게 정보를 제공할 수 있습니다.</p>
-      <ul>
-        <li>제공받는 자: KB손해보험, DB손해보험, 메리츠화재, CHUBB 등 제휴 손해보험사</li>
-        <li>제공 목적: 보험료 산출, 인수 심사, 보험 계약 체결 및 이행</li>
-        <li>제공 항목: 회사명, 담당자명, 연락처, 이메일, 행사정보 및 기타 계약에 필요한 정보</li>
-        <li>보유·이용 기간: 관련 법령상 의무 보유기간 또는 보험계약 관계 존속기간</li>
-      </ul>
-      <h4>5. 동의 거부권 및 불이익</h4>
-      <p>귀하는 개인정보 수집 및 이용에 대한 동의를 거부할 권리가 있습니다. 다만, 필수항목에 대한 동의를 거부하실 경우 보험료 산출 및 상담 서비스 제공이 제한될 수 있습니다.</p>
+      <p>수집된 개인정보는 목적 달성 후 지체 없이 파기하며, 관련 법령에 따라 최대 3~5년간 보관될 수 있습니다.</p>
     </div>
   </div>
 </div>
@@ -745,8 +974,8 @@
       <ul>
         <li>수집 항목
           <ul>
-            <li>(필수) 회사명, 담당자명, 연락처, 이메일, 행사정보(행사명, 기간, 장소, 인원 등), 계약/사업장 정보</li>
-            <li>(선택) 사업자등록번호, 첨부파일(사업자등록증, 행사개요서, 임금대장 등), 기타 문의 및 요청사항</li>
+            <li>(필수) 회사명/이름, 담당자명, 연락처, 이메일, 보험목적물 정보(행사정보, 여행정보, 사업장정보), 피보험자 명단(여행자보험의 경우 성명, 주민번호 등)</li>
+            <li>(선택) 사업자등록번호, 자택주소(5인 미만 여행자보험), 첨부파일(사업자등록증, 명단, 임금대장 등), 기타 요청사항</li>
           </ul>
         </li>
         <li>수집 방법
@@ -886,7 +1115,7 @@
       <h4>1. 회사 기본 정보</h4>
       <ul>
         <li>상호: 이투엘 주식회사</li>
-        <li>대표자: (예) 대표이사 성명</li>
+        <li>대표자: 유은진</li>
         <li>주소: 경기도 과천시 갈현동 545, 과천디테크타워 B동 1201호</li>
         <li>대표전화: 1533-5013</li>
         <li>이메일: newbiz@simg.kr</li>
@@ -924,9 +1153,6 @@ function toggleMobileMenu() {
   document.getElementById('mobileOverlay').classList.toggle('active');
   document.getElementById('mobilePanel').classList.toggle('active');
 }
-function toggleFloatingContact() {
-  document.getElementById('floatingPanel').classList.toggle('active');
-}
 document.querySelectorAll('.top-nav-menu a[data-section]').forEach(link => {
   link.addEventListener('click', () => showSection(link.dataset.section));
 });
@@ -959,11 +1185,29 @@ document.querySelectorAll('.accordion-header').forEach(btn => {
     if (!wasActive) item.classList.add('active');
   });
 });
-function submitForm(type) {
-  let msgId, loadingId, resultId, consentId;
-  if (type === 'domestic') { msgId = 'd-msg'; loadingId = 'd-loading'; resultId = 'd-result'; consentId = 'd-consent'; }
-  else if (type === 'global') { msgId = 'g-msg'; loadingId = 'g-loading'; resultId = null; consentId = 'g-consent'; }
-  else if (type === 'geunjae') { msgId = 'gj-msg'; loadingId = 'gj-loading'; resultId = null; consentId = 'gj-consent'; }
+// API 엔드포인트 설정
+const API_URL = 'api/submit.php';
+
+async function submitForm(type) {
+  let msgId, loadingId, resultId, consentId, formFields, fileFields;
+  
+  if (type === 'domestic') {
+    msgId = 'd-msg'; loadingId = 'd-loading'; resultId = 'd-result'; consentId = 'd-consent';
+    formFields = ['d-company', 'd-email', 'd-phone', 'd-eventType', 'd-count', 'd-audience', 'd-marketing'];
+    fileFields = [];
+  } else if (type === 'global') {
+    msgId = 'g-msg'; loadingId = 'g-loading'; resultId = null; consentId = 'g-consent';
+    formFields = ['g-company', 'g-bizno', 'g-type', 'g-manager', 'g-phone', 'g-email', 'g-event', 'g-location', 'g-period', 'g-booth', 'g-detail', 'g-marketing'];
+    fileFields = ['g-bizfile', 'g-eventfile'];
+  } else if (type === 'travel') {
+    msgId = 'tr-msg'; loadingId = 'tr-loading'; resultId = null; consentId = 'tr-consent';
+    formFields = ['tr-company', 'tr-manager', 'tr-email', 'tr-phone', 'tr-country', 'tr-purpose', 'tr-period', 'tr-plan', 'tr-count', 'tr-detail', 'tr-marketing'];
+    fileFields = ['tr-bizfile', 'tr-listfile'];
+  } else if (type === 'geunjae') {
+    msgId = 'gj-msg'; loadingId = 'gj-loading'; resultId = 'gj-result'; consentId = 'gj-consent';
+    formFields = ['gj-company', 'gj-bizno', 'gj-type', 'gj-industry', 'gj-email', 'gj-workers', 'gj-wage', 'gj-period', 'gj-detail', 'gj-marketing'];
+    fileFields = [];
+  }
   
   const consent = document.getElementById(consentId);
   if (!consent.checked) {
@@ -976,19 +1220,94 @@ function submitForm(type) {
   msg.textContent = '';
   loading.style.display = 'inline-flex';
   if (resultId) document.getElementById(resultId).classList.remove('active');
-  setTimeout(() => {
+  
+  // FormData 생성
+  const formData = new FormData();
+  let formTypeVal = '';
+  if (type === 'domestic') formTypeVal = 'domestic-quote';
+  else if (type === 'global') formTypeVal = 'global-quote';
+  else if (type === 'travel') formTypeVal = 'travel-quote';
+  else if (type === 'geunjae') formTypeVal = 'geunjae-quote';
+  formData.append('formType', formTypeVal);
+  
+  // 텍스트 필드 추가
+  formFields.forEach(fieldId => {
+    const el = document.getElementById(fieldId);
+    if (el) {
+      if (el.type === 'checkbox') {
+        formData.append(fieldId, el.checked ? 'on' : 'off');
+      } else {
+        formData.append(fieldId, el.value);
+      }
+    }
+  });
+  
+  // 파일 필드 추가
+  fileFields.forEach(fieldId => {
+    const el = document.getElementById(fieldId);
+    if (el && el.files && el.files[0]) {
+      formData.append(fieldId, el.files[0]);
+    }
+  });
+
+  // 해외여행자보험 전용: 여행자 명단 수집
+  if (type === 'travel') {
+    const travelers = [];
+    document.querySelectorAll('.traveler-item').forEach(item => {
+      const name = item.querySelector('.tr-name').value;
+      // 성명이 입력된 경우에만 데이터 수집 (선택 사항이므로)
+      if (name) {
+        let travelerData = {
+          gender: item.querySelector('.tr-gender').value,
+          name: name,
+          jumin: item.querySelector('.tr-jumin').value,
+          job: item.querySelector('.tr-job').value
+        };
+        
+        if (currentTravelType === 'under5') {
+          travelerData.phone = item.querySelector('.tr-phone').value;
+          travelerData.address = item.querySelector('.tr-address').value;
+        }
+        travelers.push(travelerData);
+      }
+    });
+    formData.append('travelers', JSON.stringify(travelers));
+    formData.append('travelType', currentTravelType);
+  }
+  
+  try {
+    const response = await fetch(API_URL, {
+      method: 'POST',
+      body: formData
+    });
+    
+    const result = await response.json();
     loading.style.display = 'none';
-    if (type === 'domestic') {
-      msg.textContent = '✅ 아래 보험료를 확인해주세요!';
+    
+    if (result.ok) {
+      if (type === 'domestic' || type === 'geunjae') {
+        msg.textContent = '✅ 아래 보험료를 확인해주세요!';
+        if (resultId) {
+          if (type === 'geunjae') {
+            calculateGeunjaePremium();
+          }
+          document.getElementById(resultId).classList.add('active');
+          document.getElementById(resultId).scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      } else {
+        msg.textContent = '✅ 신청 완료! 담당자가 곧 연락드립니다.';
+      }
+      msg.style.color = '#16a34a';
     } else {
-      msg.textContent = '✅ 신청 완료! 담당자가 곧 연락드립니다.';
+      msg.textContent = '❌ 오류: ' + (result.error || '전송에 실패했습니다.');
+      msg.style.color = '#dc2626';
     }
-    msg.style.color = '#16a34a';
-    if (resultId) {
-      document.getElementById(resultId).classList.add('active');
-      document.getElementById(resultId).scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  }, 800);
+  } catch (error) {
+    loading.style.display = 'none';
+    msg.textContent = '❌ 네트워크 오류가 발생했습니다.';
+    msg.style.color = '#dc2626';
+    console.error('Submit error:', error);
+  }
 }
 function resetForm(type) {
   let ids, msgId, resultId, consentIds;
@@ -1000,9 +1319,15 @@ function resetForm(type) {
     ids = ['g-company', 'g-bizno', 'g-type', 'g-manager', 'g-phone', 'g-email', 'g-event', 'g-location', 'g-period', 'g-booth', 'g-detail', 'g-bizfile', 'g-eventfile'];
     msgId = 'g-msg'; resultId = null;
     consentIds = ['g-consent', 'g-consent2', 'g-marketing'];
+  } else if (type === 'travel') {
+    ids = ['tr-company', 'tr-manager', 'tr-email', 'tr-phone', 'tr-country', 'tr-purpose', 'tr-period', 'tr-plan', 'tr-count', 'tr-detail', 'tr-bizfile', 'tr-listfile'];
+    msgId = 'tr-msg'; resultId = null;
+    consentIds = ['tr-consent', 'tr-consent2', 'tr-marketing'];
+    // 여행자 리스트 초기화
+    setTimeout(() => setTravelType('under5'), 0);
   } else if (type === 'geunjae') {
-    ids = ['gj-company', 'gj-bizno', 'gj-type', 'gj-industry', 'gj-manager', 'gj-phone', 'gj-email', 'gj-workers', 'gj-wage', 'gj-period', 'gj-detail', 'gj-bizfile', 'gj-wagefile'];
-    msgId = 'gj-msg'; resultId = null;
+    ids = ['gj-company', 'gj-bizno', 'gj-type', 'gj-industry', 'gj-email', 'gj-workers', 'gj-wage', 'gj-period', 'gj-detail'];
+    msgId = 'gj-msg'; resultId = 'gj-result';
     consentIds = ['gj-consent', 'gj-consent2', 'gj-marketing'];
   }
   ids.forEach(id => { const el = document.getElementById(id); if (el) el.value = ''; });
@@ -1010,7 +1335,7 @@ function resetForm(type) {
   document.getElementById(msgId).textContent = '';
   if (resultId) document.getElementById(resultId).classList.remove('active');
 }
-function submitApply() {
+async function submitApply() {
   const consent1 = document.getElementById('da-consent');
   const consent2 = document.getElementById('da-consent2');
   if (!consent1.checked || !consent2.checked) {
@@ -1022,11 +1347,56 @@ function submitApply() {
   const loading = document.getElementById('da-loading');
   msg.textContent = '';
   loading.style.display = 'inline-flex';
-  setTimeout(() => {
+  
+  // FormData 생성
+  const formData = new FormData();
+  formData.append('formType', 'domestic-apply');
+  
+  // 텍스트 필드 추가
+  const textFields = ['da-company', 'da-bizno', 'da-name', 'da-phone', 'da-email', 'da-period', 'da-risk', 'da-detail'];
+  textFields.forEach(fieldId => {
+    const el = document.getElementById(fieldId);
+    if (el) formData.append(fieldId, el.value);
+  });
+  
+  // 체크박스 필드
+  const foodCheckbox = document.getElementById('da-food');
+  formData.append('da-food', foodCheckbox.checked ? '식중독 특약 추가' : '미선택');
+  
+  const marketingCheckbox = document.getElementById('da-marketing');
+  formData.append('da-marketing', marketingCheckbox.checked ? 'on' : 'off');
+  
+  // 파일 필드 추가
+  const fileFields = ['da-bizfile', 'da-eventfile'];
+  fileFields.forEach(fieldId => {
+    const el = document.getElementById(fieldId);
+    if (el && el.files && el.files[0]) {
+      formData.append(fieldId, el.files[0]);
+    }
+  });
+  
+  try {
+    const response = await fetch(API_URL, {
+      method: 'POST',
+      body: formData
+    });
+    
+    const result = await response.json();
     loading.style.display = 'none';
-    msg.textContent = '✅ 가입 신청 완료! 담당자 확인 후 연락드립니다.';
-    msg.style.color = '#16a34a';
-  }, 800);
+    
+    if (result.ok) {
+      msg.textContent = '✅ 가입 신청 완료! 담당자 확인 후 연락드립니다.';
+      msg.style.color = '#16a34a';
+    } else {
+      msg.textContent = '❌ 오류: ' + (result.error || '전송에 실패했습니다.');
+      msg.style.color = '#dc2626';
+    }
+  } catch (error) {
+    loading.style.display = 'none';
+    msg.textContent = '❌ 네트워크 오류가 발생했습니다.';
+    msg.style.color = '#dc2626';
+    console.error('Submit error:', error);
+  }
 }
 function resetApply() {
   const ids = ['da-company', 'da-bizno', 'da-name', 'da-phone', 'da-email', 'da-period', 'da-detail', 'da-risk', 'da-bizfile', 'da-eventfile'];
@@ -1061,7 +1431,259 @@ function goToApply(type) {
   detail.value = `[선택한 보장 Type]\n${typeInfo[type]}\n\n[행사 정보]\n- 행사종류: ${eventType || '미입력'}\n- 행사횟수: ${count || '미입력'}회\n- 회당 인원: ${audience || '미입력'}명`;
   document.getElementById('section-domestic').scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
+// 숫자 문자열에서 콤마 제거하고 숫자로 변환
+function parseKRW(v) {
+  if (!v) return 0;
+  return Number(String(v).replace(/[^\d.-]/g, '')) || 0;
+}
+
+// 숫자를 천단위 콤마가 있는 문자열로 변환
+function fmtKRW(n) {
+  return n.toLocaleString('ko-KR') + '원';
+}
+
+// 근재보험 보험료 계산
+function calculateGeunjaePremium() {
+  const wageInput = document.getElementById('gj-wage');
+  const industrySelect = document.getElementById('gj-industry');
+  const limitSelect = document.getElementById('gj-limit');
+  
+  const total = parseKRW(wageInput?.value || '0');
+  const rate = parseFloat(industrySelect?.value || '0');
+  const limit = parseFloat(limitSelect?.value || '1');
+  
+  if (!total || !rate) {
+    document.getElementById('gj-premium-amount').textContent = '정보 부족';
+    document.getElementById('gj-premium-detail').textContent = '임금총액과 업종을 입력해주세요.';
+    return;
+  }
+  
+  // 보험료 계산: 임금총액 * 업종요율 * 보상한도계수
+  const premium = Math.round(total * rate * limit);
+  
+  // 결과 표시
+  document.getElementById('gj-premium-amount').textContent = fmtKRW(premium);
+  document.getElementById('gj-premium-detail').textContent = `연간 예상 보험료`;
+}
+
+// 숫자 입력 필드에 천단위 콤마 자동 추가
+function formatNumber(input) {
+  const value = input.value.replace(/[^\d]/g, '');
+  if (value) {
+    input.value = Number(value).toLocaleString('ko-KR');
+  } else {
+    input.value = '';
+  }
+}
+
+function goToGeunjaeApply(limitType) {
+  const company = document.getElementById('gj-company').value;
+  const email = document.getElementById('gj-email').value;
+  const type = document.getElementById('gj-type').value;
+  const industry = document.getElementById('gj-industry').value;
+  const wage = document.getElementById('gj-wage').value;
+  const workers = document.getElementById('gj-workers').value;
+  
+  document.getElementById('gja-company').value = company;
+  document.getElementById('gja-email').value = email;
+  if (type) document.getElementById('gja-type').value = type;
+  if (industry) document.getElementById('gja-industry').value = industry;
+  if (wage) document.getElementById('gja-wage').value = wage;
+  if (workers) document.getElementById('gja-workers').value = workers;
+  
+  const menu = document.getElementById('geunjae-tabs');
+  menu.querySelectorAll('a').forEach(a => a.classList.remove('active'));
+  menu.querySelector('[data-tab="geunjae-apply"]').classList.add('active');
+  document.querySelectorAll('#section-geunjae .tab-section').forEach(t => t.classList.remove('active'));
+  document.getElementById('geunjae-apply').classList.add('active');
+  
+  const limitInfo = {
+    1: '인당 1천만원 / 총 1천만원',
+    2: '인당 2천만원 / 총 2천만원',
+    3: '인당 5천만원 / 총 5천만원 (추천)'
+  };
+  const detail = document.getElementById('gja-detail');
+  detail.value = `[선택한 보상한도]\n${limitInfo[limitType]}\n\n[사업장 정보]\n- 계약유형: ${type || '미입력'}\n- 업종: ${industry || '미입력'}\n- 예상 근로자 수: ${workers || '미입력'}명\n- 연간 임금총액: ${wage || '미입력'}원`;
+  document.getElementById('section-geunjae').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+function goToGeunjaeApplyDirect() {
+  const company = document.getElementById('gj-company').value;
+  const email = document.getElementById('gj-email').value;
+  const type = document.getElementById('gj-type').value;
+  const industry = document.getElementById('gj-industry').value;
+  const wage = document.getElementById('gj-wage').value;
+  const workers = document.getElementById('gj-workers').value;
+  const period = document.getElementById('gj-period').value;
+  const detail = document.getElementById('gj-detail').value;
+  
+  document.getElementById('gja-company').value = company;
+  document.getElementById('gja-email').value = email;
+  if (type) document.getElementById('gja-type').value = type;
+  if (industry) document.getElementById('gja-industry').value = industry;
+  if (wage) document.getElementById('gja-wage').value = wage;
+  if (workers) document.getElementById('gja-workers').value = workers;
+  if (period) document.getElementById('gj-period').value = period;
+  
+  const menu = document.getElementById('geunjae-tabs');
+  menu.querySelectorAll('a').forEach(a => a.classList.remove('active'));
+  menu.querySelector('[data-tab="geunjae-apply"]').classList.add('active');
+  document.querySelectorAll('#section-geunjae .tab-section').forEach(t => t.classList.remove('active'));
+  document.getElementById('geunjae-apply').classList.add('active');
+  
+  const detailField = document.getElementById('gja-detail');
+  detailField.value = `[사업장 정보]\n- 계약유형: ${type || '미입력'}\n- 업종: ${industry || '미입력'}\n- 예상 근로자 수: ${workers || '미입력'}명\n- 연간 임금총액: ${wage || '미입력'}원\n- 보험기간: ${period || '미입력'}\n\n[기타 요청사항]\n${detail || '없음'}`;
+  document.getElementById('section-geunjae').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+async function submitGeunjaeApply() {
+  const consent1 = document.getElementById('gja-consent');
+  const consent2 = document.getElementById('gja-consent2');
+  if (!consent1.checked || !consent2.checked) {
+    alert('필수 동의 항목에 모두 체크해주세요.');
+    return;
+  }
+  
+  const msg = document.getElementById('gja-msg');
+  const loading = document.getElementById('gja-loading');
+  msg.textContent = '';
+  loading.style.display = 'inline-flex';
+  
+  const formData = new FormData();
+  formData.append('formType', 'geunjae-apply');
+  
+  const textFields = ['gja-company', 'gja-bizno', 'gja-type', 'gja-industry', 'gja-manager', 'gja-phone', 'gja-email', 'gja-workers', 'gja-wage', 'gja-period', 'gja-detail'];
+  textFields.forEach(fieldId => {
+    const el = document.getElementById(fieldId);
+    if (el) formData.append(fieldId, el.value);
+  });
+  
+  const marketingCheckbox = document.getElementById('gja-marketing');
+  formData.append('gja-marketing', marketingCheckbox.checked ? 'on' : 'off');
+  
+  const fileFields = ['gja-bizfile', 'gja-wagefile', 'gja-subfile', 'gja-costfile'];
+  fileFields.forEach(fieldId => {
+    const el = document.getElementById(fieldId);
+    if (el && el.files && el.files[0]) {
+      formData.append(fieldId, el.files[0]);
+    }
+  });
+  
+  try {
+    const response = await fetch(API_URL, {
+      method: 'POST',
+      body: formData
+    });
+    
+    const result = await response.json();
+    loading.style.display = 'none';
+    
+    if (result.ok) {
+      msg.textContent = '✅ 가입 신청 완료! 담당자 확인 후 연락드립니다.';
+      msg.style.color = '#16a34a';
+    } else {
+      msg.textContent = '❌ 오류: ' + (result.error || '전송에 실패했습니다.');
+      msg.style.color = '#dc2626';
+    }
+  } catch (error) {
+    loading.style.display = 'none';
+    msg.textContent = '❌ 네트워크 오류가 발생했습니다.';
+    msg.style.color = '#dc2626';
+    console.error('Submit error:', error);
+  }
+}
+function resetGeunjaeApply() {
+  const ids = ['gja-company', 'gja-bizno', 'gja-type', 'gja-industry', 'gja-manager', 'gja-phone', 'gja-email', 'gja-workers', 'gja-wage', 'gja-period', 'gja-detail', 'gja-bizfile', 'gja-wagefile', 'gja-subfile', 'gja-costfile'];
+  ids.forEach(id => { const el = document.getElementById(id); if (el) el.value = ''; });
+  document.getElementById('gja-consent').checked = false;
+  document.getElementById('gja-consent2').checked = false;
+  document.getElementById('gja-marketing').checked = false;
+  document.getElementById('gja-msg').textContent = '';
+}
 function openPrivacyModal() {
+  const modalBody = document.getElementById('privacy-modal-body');
+  let content = "";
+  let activeSection = "domestic";
+  
+  if (document.getElementById('section-domestic').classList.contains('active')) activeSection = "domestic";
+  else if (document.getElementById('section-global').classList.contains('active')) activeSection = "global";
+  else if (document.getElementById('section-travel').classList.contains('active')) activeSection = "travel";
+  else if (document.getElementById('section-geunjae').classList.contains('active')) activeSection = "geunjae";
+
+  const contents = {
+    'domestic': `
+      <h4>1. 수집하는 개인정보 항목</h4>
+      <ul>
+        <li>필수항목: 회사명, 이메일, 연락처, 행사종류, 예상 인원 및 행사 횟수</li>
+        <li>선택항목: 마케팅 활용 동의 여부</li>
+      </ul>
+      <h4>2. 개인정보의 수집 및 이용 목적</h4>
+      <ul>
+        <li>국내 행사보험 보험료 산출 및 견적 제공</li>
+        <li>보험 가입 상담 및 서비스 안내</li>
+      </ul>
+      <h4>3. 개인정보의 보유 및 이용 기간</h4>
+      <p>수집된 정보는 <b>상담 완료 후 1년</b> 또는 이용자의 파기 요청 시까지 보관됩니다. 단, 보험 계약 체결 시 관련 법령에 따라 5년간 보관될 수 있습니다.</p>
+    `,
+    'global': `
+      <h4>1. 수집하는 개인정보 항목</h4>
+      <ul>
+        <li>필수항목: 회사명, 사업자번호, 담당자명, 연락처, 이메일, 행사정보(명칭, 장소, 기간, 부스 수)</li>
+        <li>선택항목: 사업자등록증, 행사개요서 등 첨부파일, 기타 요청사항</li>
+      </ul>
+      <h4>2. 개인정보의 수집 및 이용 목적</h4>
+      <ul>
+        <li>해외 행사보험 보험료 산출 및 인수 심사</li>
+        <li>영문 보험증권 발행 상담 및 계약 진행</li>
+      </ul>
+      <h4>3. 개인정보의 보유 및 이용 기간</h4>
+      <p>목적 달성 후 지체 없이 파기하나, 증권 발행 및 계약 이행을 위해 <b>최대 5년간</b> 보관될 수 있습니다.</p>
+    `,
+    'travel': `
+      <h4>1. 수집하는 개인정보 항목</h4>
+      <ul>
+        <li>필수항목: 신청자명(또는 회사명), 연락처, 이메일, 여행정보(국가, 목적, 기간, 플랜), 여행자 명단(성별, 성명, 주민등록번호, 직업)</li>
+        <li>추가항목(5인 미만): 각 여행자의 개별 연락처 및 자택 주소</li>
+        <li>선택항목: 사업자등록증, 엑셀 명단 리스트 등 첨부파일</li>
+      </ul>
+      <h4>2. 개인정보의 수집 및 이용 목적</h4>
+      <ul>
+        <li>해외여행자보험 보험료 산출 및 피보험자 실명 확인</li>
+        <li>보험 가입 심사 및 보험증권 발급, 사고 시 보상 안내</li>
+      </ul>
+      <h4>3. 개인정보의 보유 및 이용 기간</h4>
+      <p>보험 계약 체결 및 사후 관리를 위해 관련 법령에 따라 <b>보험 기간 종료 후 5년간</b> 보관합니다.</p>
+    `,
+    'geunjae': `
+      <h4>1. 수집하는 개인정보 항목</h4>
+      <ul>
+        <li>필수항목: 회사명, 사업자번호, 계약유형, 업종, 이메일, 근로자 수, 임금총액, 보험기간</li>
+        <li>선택항목: 사업자등록증, 임금대장, 기타 공사 관련 서류</li>
+      </ul>
+      <h4>2. 개인정보의 수집 및 이용 목적</h4>
+      <ul>
+        <li>근재보험 보험료 산출 및 업종별 요율 확인</li>
+        <li>사업주 배상책임 보험 가입 상담 및 계약 체결</li>
+      </ul>
+      <h4>3. 개인정보의 보유 및 이용 기간</h4>
+      <p>수집된 개인정보는 <b>상담 및 계약 종료 후 5년간</b> 보관됩니다.</p>
+    `
+  };
+
+  const commonFooter = `
+    <h4>4. 개인정보의 제3자 제공</h4>
+    <p>보험 계약 체결을 위해 아래와 같이 정보가 제공될 수 있습니다.</p>
+    <ul>
+      <li>제공받는 자: DB손해보험, KB손해보험, 메리츠화재, 삼성화재 등 제휴 손보험사</li>
+      <li>제공 목적: 보험료 산출, 인수 심사 및 보험 계약 체결</li>
+      <li>제공 항목: 수집된 항목 일체</li>
+    </ul>
+    <h4>5. 동의 거부권</h4>
+    <p>귀하는 동의를 거부할 수 있으나, 필수 정보 미제공 시 보험료 확인 및 가입 서비스 이용이 불가합니다.</p>
+  `;
+
+  if (modalBody) {
+    modalBody.innerHTML = (contents[activeSection] || contents['domestic']) + commonFooter;
+  }
+  
   document.getElementById('privacyModal').classList.add('active');
   document.body.style.overflow = 'hidden';
 }
@@ -1083,22 +1705,143 @@ function closeLegalModal(event, which) {
     document.body.style.overflow = '';
   }
 }
-document.addEventListener('click', (e) => {
-  const floating = document.querySelector('.floating-contact');
-  const panel = document.getElementById('floatingPanel');
-  if (!floating.contains(e.target) && panel.classList.contains('active')) {
-    panel.classList.remove('active');
+
+// 해외여행자보험 인원수에 따른 폼 변경 함수
+let currentTravelType = 'under5';
+
+function setTravelType(type) {
+  currentTravelType = type;
+  const btnUnder = document.getElementById('tr-btn-under5');
+  const btnOver = document.getElementById('tr-btn-over5');
+  const typeDesc = document.getElementById('tr-type-desc');
+  const listGuide = document.getElementById('tr-list-guide');
+  const container = document.getElementById('traveler-items-container');
+  const companyReq = document.getElementById('tr-company-req');
+  const bizfileReq = document.getElementById('tr-bizfile-req');
+  const excelText = document.getElementById('tr-excel-text');
+
+  if (type === 'under5') {
+    btnUnder.classList.add('active');
+    btnOver.classList.remove('active');
+    typeDesc.innerText = '* 5인 미만은 개별 연락처 및 자택 주소가 포함된 상세 정보를 입력해야 합니다.';
+    if (listGuide) listGuide.innerText = '(성별, 성명, 주민등록번호, 직업, 휴대폰번호, 자택주소)';
+    if (companyReq) companyReq.style.display = 'none';
+    if (bizfileReq) bizfileReq.style.display = 'none';
+    if (excelText) excelText.innerText = '5인 미만 양식 다운로드';
+  } else {
+    btnUnder.classList.remove('active');
+    btnOver.classList.add('active');
+    typeDesc.innerText = '* 5인 이상 단체건은 명단 리스트를 간편하게 입력하실 수 있습니다.';
+    if (listGuide) listGuide.innerText = '(성별, 성명, 주민등록번호, 직업)';
+    if (companyReq) companyReq.style.display = 'inline';
+    if (bizfileReq) bizfileReq.style.display = 'inline';
+    if (excelText) excelText.innerText = '5인 이상 양식 다운로드';
   }
-});
-document.addEventListener('click', (e) => {
-  const floating = document.querySelector('.floating-contact');
-  const panel = document.getElementById('floatingPanel');
-  if (!floating.contains(e.target) && panel.classList.contains('active')) {
-    panel.classList.remove('active');
+
+  // 타입 변경 시 명단 초기화 (1명으로)
+  if (container) {
+    container.innerHTML = '';
+    addTraveler();
   }
+  const countInput = document.getElementById('tr-count');
+  if (countInput) countInput.value = 1;
+}
+
+// 엑셀 다운로드 함수 (파일 없이 즉석 생성)
+function downloadTravelerTemplate() {
+  let headers = "";
+  let fileName = "";
+  
+  if (currentTravelType === 'under5') {
+    headers = "성별,성명,주민등록번호,직업,휴대폰번호,자택주소";
+    fileName = "해외여행자보험_양식(5인미만).csv";
+  } else {
+    headers = "성별,성명,주민등록번호,직업";
+    fileName = "해외여행자보험_양식(5인이상).csv";
+  }
+
+  const blob = new Blob([new Uint8Array([0xEF, 0xBB, 0xBF]), headers], { type: 'text/csv;charset=utf-8;' });
+  const link = document.createElement("a");
+  const url = URL.createObjectURL(blob);
+  link.setAttribute("href", url);
+  link.setAttribute("download", fileName);
+  link.style.visibility = 'hidden';
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+}
+
+// 초기화 실행
+document.addEventListener('DOMContentLoaded', () => {
+  setTravelType('under5');
 });
 
-// ⬇️ 여기에 추가! ⬇️
+function addTraveler() {
+  const container = document.getElementById('traveler-items-container');
+  const newItem = document.createElement('div');
+  newItem.className = 'traveler-item';
+  
+  // 공통 필드: 성별, 성명, 주민등록번호, 직업 (모든 신청 타입 공통)
+  let html = `
+    <div class="field short"><label>성별</label><select class="tr-gender"><option value="M">남성</option><option value="F">여성</option></select></div>
+    <div class="field"><label>성명</label><input type="text" class="tr-name" placeholder="홍길동" /></div>
+    <div class="field medium"><label>주민등록번호</label><input type="text" class="tr-jumin" placeholder="000000-0000000" maxlength="14" oninput="formatJumin(this)" /></div>
+    <div class="field"><label>직업</label><input type="text" class="tr-job" placeholder="사무원 등" /></div>
+  `;
+  
+  if (currentTravelType === 'under5') {
+    // 5인 미만 전용: 연락처 및 주소
+    html += `
+      <div class="field"><label>휴대폰번호</label><input type="tel" class="tr-phone" placeholder="010-0000-0000" /></div>
+      <div class="field addr-w"><label>자택 주소</label><input type="text" class="tr-address" placeholder="시/군/구 상세주소 입력" /></div>
+    `;
+  }
+  
+  html += `<button class="btn-remove-traveler" onclick="removeTraveler(this)">×</button>`;
+  newItem.innerHTML = html;
+  container.appendChild(newItem);
+  updateTravelerCount();
+}
+
+function removeTraveler(btn) {
+  const items = document.querySelectorAll('.traveler-item');
+  if (items.length <= 1) {
+    alert('최소 1명의 여행자 정보는 입력해야 합니다.');
+    return;
+  }
+  btn.closest('.traveler-item').remove();
+  updateTravelerCount();
+}
+
+function updateTravelerCount() {
+  const count = document.querySelectorAll('.traveler-item').length;
+  document.getElementById('tr-count').value = count;
+}
+
+function updateTravelerListPlaceholder() {
+  const countInput = document.getElementById('tr-count');
+  const currentItems = document.querySelectorAll('.traveler-item').length;
+  let targetCount = parseInt(countInput.value) || 1;
+  
+  if (targetCount > 50) {
+    if(!confirm('50명 이상의 대규모 인원은 파일 첨부를 권장합니다. 직접 입력을 계속하시겠습니까?')) {
+      countInput.value = currentItems;
+      return;
+    }
+  }
+
+  if (targetCount > currentItems) {
+    for (let i = 0; i < targetCount - currentItems; i++) {
+      addTraveler();
+    }
+  } else if (targetCount < currentItems && targetCount > 0) {
+    const container = document.getElementById('traveler-items-container');
+    for (let i = 0; i < currentItems - targetCount; i++) {
+      container.lastElementChild.remove();
+    }
+  }
+}
+
 // 전체 동의 체크박스 기능
 function toggleAll(prefix) {
   const allCheckbox = document.getElementById(prefix + '-all');
@@ -1117,9 +1860,19 @@ function getConsentCheckboxes(prefix) {
     'd': ['d-consent', 'd-marketing'],
     'da': ['da-consent', 'da-consent2', 'da-marketing'],
     'g': ['g-consent', 'g-consent2', 'g-marketing'],
-    'gj': ['gj-consent', 'gj-consent2', 'gj-marketing']
+    'gj': ['gj-consent', 'gj-consent2', 'gj-marketing'],
+    'gja': ['gja-consent', 'gja-consent2', 'gja-marketing'],
+    'tr': ['tr-consent', 'tr-consent2', 'tr-marketing']
   };
   return ids[prefix].map(id => document.getElementById(id));
+}
+
+function formatJumin(input) {
+  let val = input.value.replace(/[^\d]/g, "");
+  if (val.length > 6) {
+    val = val.substring(0, 6) + "-" + val.substring(6, 13);
+  }
+  input.value = val;
 }
 </script>
 
