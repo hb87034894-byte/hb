@@ -49,11 +49,13 @@
     .service-icon { width: 56px; height: 56px; border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 28px; margin: 0 auto 16px; }
     .service-icon.blue { background: #ecfdf5; }
     .service-icon.purple { background: #f3e8ff; }
+    .service-icon.indigo { background: #eef2ff; }
     .service-icon.orange { background: #fff7ed; }
     .service-card h3 { font-size: 17px; font-weight: 700; color: #1e293b; margin: 0 0 8px; }
     .service-card p { font-size: 13px; color: #64748b; margin: 0 0 16px; line-height: 1.6; }
     .service-link { font-size: 13px; font-weight: 600; color: #10b981; display: inline-flex; align-items: center; gap: 4px; }
     .service-link.purple { color: #7c3aed; }
+    .service-link.indigo { color: #4f46e5; }
     .service-link.orange { color: #ea580c; }
     .features-section { background: #f8fafc; border-radius: 16px; padding: 28px; border: 1px solid #e8ecf2; }
     .features-section h2 { font-size: 16px; font-weight: 700; color: #1e293b; text-align: center; margin: 0 0 20px; }
@@ -82,6 +84,7 @@
     .desc { font-size: 14px; color: #64748b; margin: 8px 0 20px; line-height: 1.7; }
     .desc b.blue { color: #10b981; font-weight: 600; }
     .desc b.purple { color: #7c3aed; font-weight: 600; }
+    .desc b.indigo { color: #4f46e5; font-weight: 600; }
     .desc b.orange { color: #ea580c; font-weight: 600; }
     .inner-menu { display: flex; gap: 4px; margin-bottom: 24px; border-bottom: 1px solid #e8ecf2; overflow-x: auto; }
     .inner-menu a { font-size: 14px; font-weight: 500; padding: 12px 18px; text-decoration: none; color: #64748b; border-bottom: 2px solid transparent; margin-bottom: -1px; transition: all 0.2s ease; white-space: nowrap; cursor: pointer; }
@@ -214,17 +217,6 @@
     .modal-content li { margin-bottom: 6px; }
 					
     /* 광고심의/법적 고지 영역 */
-    .ad-disclaimer {
-      margin-top: 28px;
-      padding: 14px 16px;
-      background: #f8fafc;
-      border-radius: 10px;
-      border: 1px solid #e2e8f0;
-      font-size: 11px;
-      line-height: 1.7;
-      color: #64748b;
-    }
-    .ad-disclaimer b { color: #475569; }
 
     .footer-box { position: fixed; left: 0; right: 0; bottom: 0; z-index: 800; padding: 10px 16px 16px; background: #fff; border-top: 1px solid #e8ecf2; font-size: 11px; line-height: 1.8; color: #94a3b8; text-align: center; }
     .footer-box b { color: #475569; }
@@ -322,6 +314,7 @@
     /* 광고심의/법적 고지 영역 */
     .ad-disclaimer { margin-top: 40px; padding: 24px; background: #f8fafc; border-radius: 12px; border: 1px solid #e2e8f0; font-size: 13px; color: #64748b; line-height: 1.6; }
     .ad-disclaimer p { margin-bottom: 8px; }
+    .ad-disclaimer b { color: #475569; }
   </style>
 </head>
 <body>
@@ -488,7 +481,7 @@
                 <tr class="highlight-row"><td>Type 3</td><td>인당 2억원<br>사고당 2억원</td><td>사고당 2억원</td><td>인당 200만원<br>사고당 2,000만원</td><td>120,000원</td><td>135,000원</td><td>105,000원</td></tr>
               </tbody>
             </table>
-            <div class="quote-note">💡 <b>안내:</b> 위 보험료는 입력하신 정보 기준 예상 금액이며, 실제 보험료는 행사 상세 내용에 따라 달라질 수 있습니다.</div>
+            <div class="quote-note">💡 <b>안내:</b> 위 견적 결과는 보험 가입을 위한 참고용 추산 금액입니다.<br>실제 보험료 및 가입 가능 여부는 행사 상세 내용과 보험사 인수 심사 결과에 따라 확정됩니다.</div>
             <div class="quote-action">
               <p class="quote-action-text">원하시는 Type을 선택하여 가입신청을 진행해주세요.</p>
               <div class="type-select-row">
@@ -753,7 +746,7 @@
         </div>
 
         <div id="travel-coverage" class="tab-section coverage-section">
-          <h2>🛡️ 주요 보장내용</h2>
+          <h2>🛡️  보장내용</h2>
           <p class="coverage-intro">해외여행 중 발생할 수 있는 사고와 질병에 대해 종합적으로 보장합니다.</p>
           <table class="coverage-table">
             <thead><tr><th>담보</th><th>내용</th></tr></thead>
@@ -924,11 +917,11 @@
 
     <!-- 광고심의용 고지 영역 -->
     <div class="ad-disclaimer">
-      <p><b>손해보험대리점 이투엘 주식회사</b>는 다수의 손해보험회사와 위탁계약을 체결한 보험대리점입니다.</p>
-      <p>본 화면에서 제공되는 보험료는 이용자가 입력한 정보를 기반으로 산출된 <b>예상 보험료</b>로서, 실제 보험료 및 가입 가능 여부는 각 보험회사의 인수기준 및 심사 결과에 따라 달라질 수 있습니다.</p>
-      <p>보험계약 체결권은 해당 보험회사에 있으며, 보험에 관한 중요한 사항은 반드시 <b>상품설명서 및 약관</b>을 통해 확인하시기 바랍니다.</p>
-      <p>수집된 개인정보는 보험료 산출, 상담 제공, 가입 신청 등 <b>보험 관련 서비스 제공 목적</b>으로 이용되며, <b>(선택)</b> 마케팅 활용에 동의하신 경우에 한하여 신규 서비스 안내, 프로모션 등 광고성 정보 제공 목적으로 추가 이용될 수 있습니다.</p>
-      <p>보험 관련 분쟁 발생 시 금융감독원(국번없이 1332) 또는 해당 보험회사의 고객센터를 통해 분쟁조정을 신청하실 수 있습니다.</p>
+      <p><b>이투엘㈜ 보험대리점</b>은 다수의 보험사와 계약을 체결하여 보험상품을 대리·중개하는 보험대리점입니다. (협회등록번호 : 2019020043)</p>
+      <p>본 페이지에서 안내되는 내용 및 금액은 입력하신 정보를 기준으로 한 참고용 예시(추산)이며, 실제 보험료, 보장 내용 및 가입 가능 여부는 보험사 인수 심사 및 해당 상품의 약관에 따라 달라질 수 있습니다.</p>
+      <p>보험계약 체결 전 상품설명서 및 약관을 반드시 확인하시고, 보험대리점으로부터 충분한 설명을 받으시기 바랍니다.</p>
+      <p>본 광고는 광고심의기준에 따라 사전심의를 득하였으며, 유효기간은 심의일로부터 1년입니다.</p>
+      <p>이투엘㈜ 보험대리점 준법감시필 제2025-05002호 (2025.12.22 ~ 2026.12.21)</p>
     </div>
 
   </div>
@@ -1145,7 +1138,7 @@
   <b>이투엘 주식회사</b><br>
   경기도 과천시 갈현동 545 과천디테크타워 B동 1201호<br>
   보험대리점등록번호 제2019020043호 · 사업자등록번호 789-81-01455<br>
-  준법감시인 심의필 제2025-05002호 (2025.12.15 ~ 2026.12.14)
+  준법감시필 제2025-05002호 (2025.12.22 ~ 2026.12.21)
 </div>
 
 <script>
@@ -1163,7 +1156,35 @@ function showSection(section) {
     if (activeLink) activeLink.classList.add('active');
   }
   document.querySelectorAll('.main-section').forEach(s => s.classList.remove('active'));
-  document.getElementById(`section-${section}`).classList.add('active');
+  const targetSection = document.getElementById(`section-${section}`);
+  if (targetSection) {
+    targetSection.classList.add('active');
+    
+    // 섹션별 첫 탭 활성화
+    const firstTabMap = {
+      'domestic': 'domestic-quote',
+      'global': 'global-quote',
+      'travel': 'travel-quote',
+      'geunjae': 'geunjae-quote'
+    };
+    
+    if (firstTabMap[section]) {
+      const innerMenu = targetSection.querySelector('.inner-menu');
+      if (innerMenu) {
+        const firstTabLink = innerMenu.querySelector('a[data-tab]');
+        if (firstTabLink) {
+          innerMenu.querySelectorAll('a').forEach(a => a.classList.remove('active'));
+          firstTabLink.classList.add('active');
+          const tabWrapper = innerMenu.nextElementSibling;
+          if (tabWrapper) {
+            tabWrapper.querySelectorAll('.tab-section').forEach(t => t.classList.remove('active'));
+            const firstTab = document.getElementById(firstTabMap[section]);
+            if (firstTab) firstTab.classList.add('active');
+          }
+        }
+      }
+    }
+  }
 }
 document.querySelectorAll('.inner-menu a[data-tab]').forEach(link => {
   link.addEventListener('click', () => {
@@ -1285,12 +1306,16 @@ async function submitForm(type) {
     loading.style.display = 'none';
     
     if (result.ok) {
-      if (type === 'domestic' || type === 'geunjae') {
+      if (type === 'domestic') {
+        msg.textContent = '✅ 아래 예상 보험료를 확인해주세요!';
+        if (resultId) {
+          document.getElementById(resultId).classList.add('active');
+          document.getElementById(resultId).scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      } else if (type === 'geunjae') {
         msg.textContent = '✅ 아래 보험료를 확인해주세요!';
         if (resultId) {
-          if (type === 'geunjae') {
-            calculateGeunjaePremium();
-          }
+          calculateGeunjaePremium();
           document.getElementById(resultId).classList.add('active');
           document.getElementById(resultId).scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
@@ -1310,42 +1335,100 @@ async function submitForm(type) {
   }
 }
 function resetForm(type) {
-  let ids, msgId, resultId, consentIds;
+  let ids, msgId, resultId, consentIds, allCheckboxId;
   if (type === 'domestic') {
     ids = ['d-company', 'd-email', 'd-phone', 'd-eventType', 'd-count', 'd-audience'];
     msgId = 'd-msg'; resultId = 'd-result';
     consentIds = ['d-consent', 'd-marketing'];
+    allCheckboxId = 'd-all';
   } else if (type === 'global') {
-    ids = ['g-company', 'g-bizno', 'g-type', 'g-manager', 'g-phone', 'g-email', 'g-event', 'g-location', 'g-period', 'g-booth', 'g-detail', 'g-bizfile', 'g-eventfile'];
+    ids = ['g-company', 'g-bizno', 'g-type', 'g-manager', 'g-phone', 'g-email', 'g-event', 'g-location', 'g-period', 'g-booth', 'g-detail'];
     msgId = 'g-msg'; resultId = null;
     consentIds = ['g-consent', 'g-consent2', 'g-marketing'];
+    allCheckboxId = 'g-all';
   } else if (type === 'travel') {
-    ids = ['tr-company', 'tr-manager', 'tr-email', 'tr-phone', 'tr-country', 'tr-purpose', 'tr-period', 'tr-plan', 'tr-count', 'tr-detail', 'tr-bizfile', 'tr-listfile'];
+    ids = ['tr-company', 'tr-manager', 'tr-email', 'tr-phone', 'tr-country', 'tr-purpose', 'tr-period', 'tr-plan', 'tr-count', 'tr-detail'];
     msgId = 'tr-msg'; resultId = null;
     consentIds = ['tr-consent', 'tr-consent2', 'tr-marketing'];
+    allCheckboxId = 'tr-all';
     // 여행자 리스트 초기화
     setTimeout(() => setTravelType('under5'), 0);
   } else if (type === 'geunjae') {
     ids = ['gj-company', 'gj-bizno', 'gj-type', 'gj-industry', 'gj-email', 'gj-workers', 'gj-wage', 'gj-period', 'gj-detail'];
     msgId = 'gj-msg'; resultId = 'gj-result';
     consentIds = ['gj-consent', 'gj-consent2', 'gj-marketing'];
+    allCheckboxId = 'gj-all';
   }
-  ids.forEach(id => { const el = document.getElementById(id); if (el) el.value = ''; });
-  consentIds.forEach(id => { const el = document.getElementById(id); if (el) el.checked = false; });
-  document.getElementById(msgId).textContent = '';
-  if (resultId) document.getElementById(resultId).classList.remove('active');
+  
+  // 입력 필드 초기화
+  ids.forEach(id => { 
+    const el = document.getElementById(id); 
+    if (el) el.value = ''; 
+  });
+  
+  // 체크박스 초기화
+  if (allCheckboxId) {
+    const allCheckbox = document.getElementById(allCheckboxId);
+    if (allCheckbox) allCheckbox.checked = false;
+  }
+  
+  consentIds.forEach(id => { 
+    const el = document.getElementById(id); 
+    if (el) el.checked = false; 
+  });
+  
+  // 메시지 초기화
+  const msgEl = document.getElementById(msgId);
+  if (msgEl) {
+    msgEl.textContent = '';
+    msgEl.style.color = '';
+  }
+  
+  // 결과 섹션 숨김
+  if (resultId) {
+    const resultEl = document.getElementById(resultId);
+    if (resultEl) resultEl.classList.remove('active');
+  }
 }
 async function submitApply() {
+  // 필수 동의 확인
   const consent1 = document.getElementById('da-consent');
   const consent2 = document.getElementById('da-consent2');
-  if (!consent1.checked || !consent2.checked) {
+  if (!consent1 || !consent1.checked || !consent2 || !consent2.checked) {
     alert('필수 동의 항목에 모두 체크해주세요.');
+    return;
+  }
+  
+  // 필수 입력값 검증
+  const requiredFields = [
+    { id: 'da-company', name: '회사명' },
+    { id: 'da-name', name: '담당자명' },
+    { id: 'da-phone', name: '연락처' },
+    { id: 'da-email', name: '이메일' },
+    { id: 'da-period', name: '행사기간' }
+  ];
+  
+  for (const field of requiredFields) {
+    const el = document.getElementById(field.id);
+    if (!el || !el.value.trim()) {
+      alert(`${field.name}을(를) 입력해주세요.`);
+      el?.focus();
+      return;
+    }
+  }
+  
+  // 필수 파일 확인 (행사개요서)
+  const eventFile = document.getElementById('da-eventfile');
+  if (!eventFile || !eventFile.files || !eventFile.files[0]) {
+    alert('행사개요서 파일을 첨부해주세요.');
+    eventFile?.focus();
     return;
   }
   
   const msg = document.getElementById('da-msg');
   const loading = document.getElementById('da-loading');
   msg.textContent = '';
+  msg.style.color = '';
   loading.style.display = 'inline-flex';
   
   // FormData 생성
@@ -1361,10 +1444,10 @@ async function submitApply() {
   
   // 체크박스 필드
   const foodCheckbox = document.getElementById('da-food');
-  formData.append('da-food', foodCheckbox.checked ? '식중독 특약 추가' : '미선택');
+  formData.append('da-food', foodCheckbox && foodCheckbox.checked ? '식중독 특약 추가' : '미선택');
   
   const marketingCheckbox = document.getElementById('da-marketing');
-  formData.append('da-marketing', marketingCheckbox.checked ? 'on' : 'off');
+  formData.append('da-marketing', marketingCheckbox && marketingCheckbox.checked ? 'on' : 'off');
   
   // 파일 필드 추가
   const fileFields = ['da-bizfile', 'da-eventfile'];
@@ -1400,12 +1483,31 @@ async function submitApply() {
 }
 function resetApply() {
   const ids = ['da-company', 'da-bizno', 'da-name', 'da-phone', 'da-email', 'da-period', 'da-detail', 'da-risk', 'da-bizfile', 'da-eventfile'];
-  ids.forEach(id => { const el = document.getElementById(id); if (el) el.value = ''; });
-  document.getElementById('da-food').checked = false;
-  document.getElementById('da-consent').checked = false;
-  document.getElementById('da-consent2').checked = false;
-  document.getElementById('da-marketing').checked = false;
-  document.getElementById('da-msg').textContent = '';
+  ids.forEach(id => { 
+    const el = document.getElementById(id); 
+    if (el) {
+      el.value = ''; 
+      // 파일 입력은 value 대신 files 직접 초기화 불가능하므로 그대로 둠
+    }
+  });
+  
+  const foodCheckbox = document.getElementById('da-food');
+  if (foodCheckbox) foodCheckbox.checked = false;
+  
+  const allCheckbox = document.getElementById('da-all');
+  if (allCheckbox) allCheckbox.checked = false;
+  
+  const consentIds = ['da-consent', 'da-consent2', 'da-marketing'];
+  consentIds.forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.checked = false;
+  });
+  
+  const msgEl = document.getElementById('da-msg');
+  if (msgEl) {
+    msgEl.textContent = '';
+    msgEl.style.color = '';
+  }
 }
 function goToApply(type) {
   const company = document.getElementById('d-company').value;
@@ -1448,22 +1550,45 @@ function calculateGeunjaePremium() {
   const industrySelect = document.getElementById('gj-industry');
   const limitSelect = document.getElementById('gj-limit');
   
-  const total = parseKRW(wageInput?.value || '0');
-  const rate = parseFloat(industrySelect?.value || '0');
-  const limit = parseFloat(limitSelect?.value || '1');
+  const premiumAmountEl = document.getElementById('gj-premium-amount');
+  const premiumDetailEl = document.getElementById('gj-premium-detail');
   
-  if (!total || !rate) {
-    document.getElementById('gj-premium-amount').textContent = '정보 부족';
-    document.getElementById('gj-premium-detail').textContent = '임금총액과 업종을 입력해주세요.';
+  if (!premiumAmountEl || !premiumDetailEl) return;
+  
+  const wageValue = wageInput?.value || '';
+  const industryValue = industrySelect?.value || '';
+  const limitValue = limitSelect?.value || '1';
+  
+  // 입력값 검증
+  if (!wageValue.trim() || !industryValue.trim() || industryValue === '') {
+    premiumAmountEl.textContent = '입력값을 확인해주세요';
+    premiumDetailEl.textContent = '임금총액과 업종을 입력해주세요.';
+    return;
+  }
+  
+  const total = parseKRW(wageValue);
+  const rate = parseFloat(industryValue);
+  const limitFactor = parseFloat(limitValue);
+  
+  // NaN 방지 및 유효성 검증
+  if (isNaN(total) || total <= 0 || isNaN(rate) || rate <= 0 || isNaN(limitFactor) || limitFactor <= 0) {
+    premiumAmountEl.textContent = '입력값을 확인해주세요';
+    premiumDetailEl.textContent = '올바른 숫자를 입력해주세요.';
     return;
   }
   
   // 보험료 계산: 임금총액 * 업종요율 * 보상한도계수
-  const premium = Math.round(total * rate * limit);
+  const premium = Math.round(total * rate * limitFactor);
   
   // 결과 표시
-  document.getElementById('gj-premium-amount').textContent = fmtKRW(premium);
-  document.getElementById('gj-premium-detail').textContent = `연간 예상 보험료`;
+  if (isNaN(premium) || premium < 0) {
+    premiumAmountEl.textContent = '입력값을 확인해주세요';
+    premiumDetailEl.textContent = '계산 중 오류가 발생했습니다.';
+    return;
+  }
+  
+  premiumAmountEl.textContent = fmtKRW(premium);
+  premiumDetailEl.textContent = '연간 예상 보험료';
 }
 
 // 숫자 입력 필드에 천단위 콤마 자동 추가
@@ -1591,22 +1716,46 @@ async function submitGeunjaeApply() {
   }
 }
 function resetGeunjaeApply() {
-  const ids = ['gja-company', 'gja-bizno', 'gja-type', 'gja-industry', 'gja-manager', 'gja-phone', 'gja-email', 'gja-workers', 'gja-wage', 'gja-period', 'gja-detail', 'gja-bizfile', 'gja-wagefile', 'gja-subfile', 'gja-costfile'];
-  ids.forEach(id => { const el = document.getElementById(id); if (el) el.value = ''; });
-  document.getElementById('gja-consent').checked = false;
-  document.getElementById('gja-consent2').checked = false;
-  document.getElementById('gja-marketing').checked = false;
-  document.getElementById('gja-msg').textContent = '';
+  const ids = ['gja-company', 'gja-bizno', 'gja-type', 'gja-industry', 'gja-manager', 'gja-phone', 'gja-email', 'gja-workers', 'gja-wage', 'gja-period', 'gja-detail'];
+  ids.forEach(id => { 
+    const el = document.getElementById(id); 
+    if (el) el.value = ''; 
+  });
+  
+  // 파일 입력 필드는 value로 초기화 불가능하므로 그대로 둠
+  
+  // 전체 동의 체크박스 초기화
+  const allCheckbox = document.getElementById('gja-all');
+  if (allCheckbox) allCheckbox.checked = false;
+  
+  // 개별 동의 체크박스 초기화
+  const consentIds = ['gja-consent', 'gja-consent2', 'gja-marketing'];
+  consentIds.forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.checked = false;
+  });
+  
+  // 메시지 초기화
+  const msgEl = document.getElementById('gja-msg');
+  if (msgEl) {
+    msgEl.textContent = '';
+    msgEl.style.color = '';
+  }
 }
 function openPrivacyModal() {
   const modalBody = document.getElementById('privacy-modal-body');
-  let content = "";
   let activeSection = "domestic";
   
-  if (document.getElementById('section-domestic').classList.contains('active')) activeSection = "domestic";
-  else if (document.getElementById('section-global').classList.contains('active')) activeSection = "global";
-  else if (document.getElementById('section-travel').classList.contains('active')) activeSection = "travel";
-  else if (document.getElementById('section-geunjae').classList.contains('active')) activeSection = "geunjae";
+  // 현재 활성화된 섹션 확인
+  if (document.getElementById('section-domestic')?.classList.contains('active')) {
+    activeSection = "domestic";
+  } else if (document.getElementById('section-global')?.classList.contains('active')) {
+    activeSection = "global";
+  } else if (document.getElementById('section-travel')?.classList.contains('active')) {
+    activeSection = "travel";
+  } else if (document.getElementById('section-geunjae')?.classList.contains('active')) {
+    activeSection = "geunjae";
+  }
 
   const contents = {
     'domestic': `
@@ -1688,9 +1837,12 @@ function openPrivacyModal() {
   document.body.style.overflow = 'hidden';
 }
 function closePrivacyModal(event) {
-  if (!event || event.target === event.currentTarget) {
-    document.getElementById('privacyModal').classList.remove('active');
-    document.body.style.overflow = '';
+  if (event === null || event === undefined || event.target === event.currentTarget) {
+    const modal = document.getElementById('privacyModal');
+    if (modal) {
+      modal.classList.remove('active');
+      document.body.style.overflow = '';
+    }
   }
 }
 function openLegalModal(which) {
@@ -1699,10 +1851,13 @@ function openLegalModal(which) {
   document.body.style.overflow = 'hidden';
 }
 function closeLegalModal(event, which) {
-  if (!event || event.target === event.currentTarget) {
+  if (event === null || event === undefined || event.target === event.currentTarget) {
     const id = which + 'Modal';
-    document.getElementById(id).classList.remove('active');
-    document.body.style.overflow = '';
+    const modal = document.getElementById(id);
+    if (modal) {
+      modal.classList.remove('active');
+      document.body.style.overflow = '';
+    }
   }
 }
 
