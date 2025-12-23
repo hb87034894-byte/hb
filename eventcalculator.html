@@ -502,7 +502,7 @@
               <div class="field"><label>연락처 <span class="required">*</span></label><input type="tel" id="da-phone" placeholder="예: 010-1234-5678" /></div>
               <div class="field"><label>이메일 <span class="required">*</span></label><input type="email" id="da-email" placeholder="예: example@mail.com" /></div>
               <div class="field"><label>행사기간 <span class="required">*</span></label><input type="text" id="da-period" placeholder="예: 2025.04.01 ~ 2025.04.03" /></div>
-              <div class="field"><label>위험활동 여부</label><select id="da-risk"><option value="">선택해주세요</option><option>운동경기</option><option>체육활동</option><option>수상위험</option><option>불꽃놀이</option><option>에어바운스/놀이기구 탑승</option><option>자전거/킥보드/인라인 탑승</option><option>구내용 전동카트/열차 탑승</option><option>기타</option></select></div>
+              <div class="field"><label>위험활동 여부</label><select id="da-risk"><option value="">선택해주세요</option><option>없음</option><option>운동경기</option><option>체육활동</option><option>수상위험</option><option>불꽃놀이</option><option>에어바운스/놀이기구 탑승</option><option>자전거/킥보드/인라인 탑승</option><option>구내용 전동카트/열차 탑승</option><option>기타</option></select></div>
               <div class="field"><label>음식물 특약</label><div class="checkbox-wrap"><input type="checkbox" id="da-food" /><label for="da-food" class="checkbox-label">식중독 등 음식물로 인한 사고 보장 추가</label></div></div>
               <div class="field full"><label>행사 특이사항 / 선택 Type</label><textarea id="da-detail" placeholder="특이사항이 있으면 기재해 주세요"></textarea></div>
               <div class="field"><label>사업자등록증(또는 고유번호증) <span class="sub">(신규 고객 시 첨부)</span></label><input type="file" id="da-bizfile" accept=".pdf,.jpg,.jpeg,.png" /></div>
@@ -548,8 +548,8 @@
           <div class="accordion-item"><button class="accordion-header">세금계산서 발행이 가능한가요?</button><div class="accordion-content"><p>보험은 <b>면세사업</b>으로 세금계산서 발행이 불가합니다. 영수증만 전달 가능합니다.</p></div></div>
           <div class="accordion-item"><button class="accordion-header">직인날인은 언제 필요한가요?</button><div class="accordion-content"><p>개인사업자 외에는 <b>청약서 및 질문서에 직인날인</b>이 필요합니다.</p></div></div>
           <div class="accordion-item"><button class="accordion-header">위험활동이 포함되면 가입이 어렵나요?</button><div class="accordion-content"><p>복싱, 격투, 스카이다이빙 등 <b>고위험 활동이 주 목적인 행사는 인수 제한</b>될 수 있습니다.</p></div></div>
-          <div class="accordion-item"><button class="accordion-header">음식물 제공 시 별도 특약이 필요한가요?</button><div class="accordion-content"><p>네, 행사에서 음식물을 제공하는 경우 생산물(음식물) 특약 추가를 권장드립니다.</p></div></div>
-          <div class="accordion-item"><button class="accordion-header">보장내용 중 대인과 치료비 차이가 무엇인가요?</button><div class="accordion-content"><p>두 담보는 모두 행사 중 발생한 사고를 보장하지만, <b>'과실 유무'</b>에 따라 적용 방식이 달라집니다.<br><br>✔ <b>대인(배상책임)</b><br>행사 주최 측의 과실이 있을 때 보상되는 담보입니다.<br><br>✔ <b>치료비(자손·의무적 치료비)</b><br>과실 여부와 관계없이, 행사 중 다치기만 하면 치료비를 지급하는 담보입니다.</p></div></div>
+          <div class="accordion-item"><button class="accordion-header">음식물 제공 시 별도 특약이 필요한가요?</button><div class="accordion-content"><p>네, 식중독 등 음식물로 인한 사고 보장이 필요한 경우 생산물(음식물) 특약 추가를 권장드립니다.</p></div></div>
+          <div class="accordion-item"><button class="accordion-header">대인과 치료비의 차이는 무엇인가요?</button><div class="accordion-content"><p>치료비는 대인과 달리 행사주최측의 과실이 없거나 미미하더라도, 참가자 및 관람객 보호 차원에서 치료비를 지급할 수 있도록 특화된 항목입니다.</p></div></div>
           <div class="accordion-item"><button class="accordion-header">체육활동은 어떤 경우에 해당되나요?</button><div class="accordion-content"><p>장소 이동, 신체활동, 놀이, 게임, 레크레이션의 경우를 <b>모두 포함</b>합니다.</p></div></div>
         </div>
       </div>
@@ -626,6 +626,7 @@
           <div class="accordion-item"><button class="accordion-header">음식 제공 시 식중독 사고도 보장되나요?</button><div class="accordion-content"><p>네. <b>생산물배상책임</b> 담보로 보장 가능합니다.</p></div></div>
           <div class="accordion-item"><button class="accordion-header">해외 사고도 국내에서 처리 가능한가요?</button><div class="accordion-content"><p>네. 국내 담당자에게 접수하면 보험사가 해외 네트워크로 조사하고 <b>지급은 국내</b>에서 처리합니다.</p></div></div>
           <div class="accordion-item"><button class="accordion-header">설치·철거 중 사고도 보장되나요?</button><div class="accordion-content"><p>네. 행사 준비/종료 과정의 설치·철거 중 사고도 보장 가능합니다.</p></div></div>
+          <div class="accordion-item"><button class="accordion-header">공동 피보험자 추가가 가능한가요?</button><div class="accordion-content"><p>네, 가능합니다. 추가가 필요한 업체 또는 기관의 사업자등록증 또는 고유번호증을 전달해 주시면 확인 후 공동 피보험자로 추가해드리고 있습니다.</p></div></div>
         </div>
       </div>
     </div>
@@ -664,6 +665,7 @@
               <div class="field"><label>대표 연락처 <span class="required">*</span></label><input type="tel" id="tr-phone" placeholder="예: 010-1234-5678" /></div>
               
               <div class="field"><label>여행 국가 <span class="required">*</span> <span class="sub">(2개국 이상 방문 시 모두 기재)</span></label><input type="text" id="tr-country" placeholder="예: 미국, 일본, 프랑스 등" /></div>
+              <div class="field"><label>여행 지역</label><input type="text" id="tr-region" placeholder="예: 유럽, 동남아시아, 미주 등" /></div>
               <div class="field"><label>여행 목적 <span class="required">*</span></label>
                 <select id="tr-purpose">
                   <option value="">선택해주세요</option>
@@ -758,6 +760,8 @@
               <tr><td>휴대품 손해</td><td>도난, 파손 등으로 인한 휴대품 손해 보상 (분실 제외)</td></tr>
               <tr><td>여권분실 재발급비용</td><td>여권 분실 시 재발급에 소요되는 비용 보상</td></tr>
               <tr><td>항공기 지연/결항</td><td>항공편 지연 등으로 발생하는 추가 비용 보상 (약관 기준)</td></tr>
+              <tr><td>중대사고 구조송환비용</td><td>여행 중 사고, 항공기 조난·행방불명 등으로 긴급 수색·구조가 필요한 경우 발생하는 비용 보장</td></tr>
+              <tr><td>항공기 납치</td><td>여행 중 탑승한 항공기가 납치된 경우 보장</td></tr>
             </tbody>
           </table>
           <div class="coverage-note">⚠️ 모든 보장은 가입하신 <b>플랜 및 해당 약관</b>에 따라 제한될 수 있습니다.</div>
@@ -769,6 +773,9 @@
           <div class="accordion-item"><button class="accordion-header">현지에서 병원을 갔을 때 어떻게 청구하나요?</button><div class="accordion-content"><p>진료비 영수증, 진단서(또는 처방전)를 반드시 챙겨오셔야 합니다. 귀국 후 보험금 청구 서류와 함께 접수하시면 됩니다.</p></div></div>
           <div class="accordion-item"><button class="accordion-header">휴대품 분실도 보상되나요?</button><div class="accordion-content"><p><b>단순 분실(어디 뒀는지 모름 등)은 보상되지 않습니다.</b> 도난의 경우 현지 경찰서의 폴리스 리포트가 필요하며, 파손의 경우 사진 증빙이 필요합니다.</p></div></div>
           <div class="accordion-item"><button class="accordion-header">출국 후에 가입할 수 있나요?</button><div class="accordion-content"><p>안타깝게도 모든 여행자보험은 <b>출국 전(인천공항 등)</b>에만 가입이 가능합니다.</p></div></div>
+          <div class="accordion-item"><button class="accordion-header">출국일/입국일이 다른 인원이 있는데, 하나의 증권으로 발급할 수 있나요?</button><div class="accordion-content"><p>해외여행자보험은 여행기간에 따라 보장기간과 보험료가 달라지므로, 일정이 다른 인원을 하나의 증권으로 묶어 발급하는 것은 어렵습니다.</p></div></div>
+          <div class="accordion-item"><button class="accordion-header">가입 플랜별로 비교 견적 안내를 받을 수 있을까요?</button><div class="accordion-content"><p>네 가능합니다. '기타 요청사항'에 기재해 주시면 반영하여 안내 드리고 있습니다.</p></div></div>
+          <div class="accordion-item"><button class="accordion-header">외국 국적자도 해외여행자보험 가입이 가능한가요?</button><div class="accordion-content"><p>네 가능합니다. 단, 본국이 아닌 제3국으로 입국하는 경우에 한해 가능하며, 주민등록번호 입력란에 외국인등록번호 기재가 필요합니다.</p></div></div>
         </div>
       </div>
     </div>
@@ -1222,7 +1229,7 @@ async function submitForm(type) {
     fileFields = ['g-bizfile', 'g-eventfile'];
   } else if (type === 'travel') {
     msgId = 'tr-msg'; loadingId = 'tr-loading'; resultId = null; consentId = 'tr-consent';
-    formFields = ['tr-company', 'tr-manager', 'tr-email', 'tr-phone', 'tr-country', 'tr-purpose', 'tr-period', 'tr-plan', 'tr-count', 'tr-detail', 'tr-marketing'];
+    formFields = ['tr-company', 'tr-manager', 'tr-email', 'tr-phone', 'tr-country', 'tr-region', 'tr-purpose', 'tr-period', 'tr-plan', 'tr-count', 'tr-detail', 'tr-marketing'];
     fileFields = ['tr-bizfile', 'tr-listfile'];
   } else if (type === 'geunjae') {
     msgId = 'gj-msg'; loadingId = 'gj-loading'; resultId = 'gj-result'; consentId = 'gj-consent';
@@ -1347,7 +1354,7 @@ function resetForm(type) {
     consentIds = ['g-consent', 'g-consent2', 'g-marketing'];
     allCheckboxId = 'g-all';
   } else if (type === 'travel') {
-    ids = ['tr-company', 'tr-manager', 'tr-email', 'tr-phone', 'tr-country', 'tr-purpose', 'tr-period', 'tr-plan', 'tr-count', 'tr-detail'];
+    ids = ['tr-company', 'tr-manager', 'tr-email', 'tr-phone', 'tr-country', 'tr-region', 'tr-purpose', 'tr-period', 'tr-plan', 'tr-count', 'tr-detail'];
     msgId = 'tr-msg'; resultId = null;
     consentIds = ['tr-consent', 'tr-consent2', 'tr-marketing'];
     allCheckboxId = 'tr-all';
