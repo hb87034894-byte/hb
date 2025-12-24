@@ -1,0 +1,48 @@
+# 업로드된 파일 및 로그
+uploads/
+*.log
+
+# 환경 설정 파일 (민감한 정보 포함)
+.env
+config.php
+*.config.php
+
+# IDE 및 에디터 설정
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# 임시 파일
+*.tmp
+*.temp
+*.bak
+*.backup
+
+# OS 관련 파일
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+
+# PHP 관련
+composer.phar
+vendor/
+*.php~
+php_errors.log
+
+# 압축 파일 (필요시 주석 해제)
+# *.zip
+# *.tar
+# *.tar.gz
+
+# 기타 임시 파일
+md/Untitled-*.txt
+
