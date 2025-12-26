@@ -351,7 +351,7 @@
     <div class="icon">📞</div>
     <div class="info">
       <span class="label">전화상담 (평일 9시~18시)</span>
-      <span class="value">010-8703-4894</span>
+      <span class="value">1533-5013</span>
     </div>
   </div>
   <a href="mailto:newbiz@simg.kr" class="contact-pill">
@@ -421,7 +421,7 @@
       <div class="contact-section">
         <h2>📞 고객센터</h2>
         <div class="contact-grid">
-          <div class="contact-item"><div class="contact-icon">📞</div><div class="contact-info"><h4>전화상담</h4><p class="contact-main">010-8703-4894</p><p class="contact-sub">평일 9시 ~ 18시</p></div></div>
+          <div class="contact-item"><div class="contact-icon">📞</div><div class="contact-info"><h4>전화상담</h4><p class="contact-main">1533-5013</p><p class="contact-sub">평일 9시 ~ 18시</p></div></div>
           <div class="contact-item"><div class="contact-icon">✉️</div><div class="contact-info"><h4>이메일 문의</h4><p class="contact-main">newbiz@simg.kr</p><p class="contact-sub">24시간 접수 가능</p></div></div>
         </div>
       </div>
@@ -497,7 +497,7 @@
           <div class="card">
             <div class="input-grid">
               <div class="field"><label>회사명 <span class="required">*</span></label><input type="text" id="da-company" placeholder="예: (주)홍길동이엔씨" /></div>
-              <div class="field"><label>사업자등록번호</label><input type="text" id="da-bizno" placeholder="예: 123-45-67890" /></div>
+              <div class="field"><label>사업자등록번호 <span class="required">*</span></label><input type="text" id="da-bizno" placeholder="예: 123-45-67890" maxlength="12" oninput="formatBizNo(this)" /></div>
               <div class="field"><label>담당자명 <span class="required">*</span></label><input type="text" id="da-name" placeholder="예: 홍길동" /></div>
               <div class="field"><label>연락처 <span class="required">*</span></label><input type="tel" id="da-phone" placeholder="예: 010-1234-5678" /></div>
               <div class="field"><label>이메일 <span class="required">*</span></label><input type="email" id="da-email" placeholder="예: example@mail.com" /></div>
@@ -571,7 +571,7 @@
           <div class="card">
             <div class="input-grid">
               <div class="field"><label>회사명 <span class="required">*</span></label><input type="text" id="g-company" placeholder="예: (주)홍길동전시" /></div>
-              <div class="field"><label>사업자등록번호 <span class="required">*</span></label><input type="text" id="g-bizno" placeholder="예: 123-45-67890" /></div>
+              <div class="field"><label>사업자등록번호 <span class="required">*</span></label><input type="text" id="g-bizno" placeholder="예: 123-45-67890" maxlength="12" oninput="formatBizNo(this)" /></div>
               <div class="field"><label>계약자 유형 <span class="required">*</span></label><select id="g-type"><option value="">선택해주세요</option><option>행사주최사</option><option>행사대행사</option><option>행사참여사 (부스 참가)</option></select></div>
               <div class="field"><label>담당자명 <span class="required">*</span></label><input type="text" id="g-manager" placeholder="예: 홍길동" /></div>
               <div class="field"><label>연락처 <span class="required">*</span></label><input type="tel" id="g-phone" placeholder="예: 010-1234-5678" /></div>
@@ -660,6 +660,7 @@
           <div class="card">
             <div class="input-grid">
               <div class="field"><label>회사명 / 단체명 <span class="required" id="tr-company-req">*</span></label><input type="text" id="tr-company" placeholder="예: (주)이투엘" /></div>
+              <div class="field"><label>사업자등록번호 <span class="required" id="tr-bizno-req" style="display: none;">*</span></label><input type="text" id="tr-bizno" placeholder="예: 123-45-67890" maxlength="12" oninput="formatBizNo(this)" /></div>
               <div class="field"><label>담당자 성함 <span class="required">*</span></label><input type="text" id="tr-manager" placeholder="예: 홍길동" /></div>
               <div class="field"><label>이메일 <span class="required">*</span></label><input type="email" id="tr-email" placeholder="예: example@mail.com" /></div>
               <div class="field"><label>대표 연락처 <span class="required">*</span></label><input type="tel" id="tr-phone" placeholder="예: 010-1234-5678" /></div>
@@ -797,13 +798,13 @@
           <div class="card">
             <div class="input-grid">
               <div class="field"><label>회사명 <span class="required">*</span></label><input type="text" id="gj-company" placeholder="예: (주)홍길동건설" /></div>
-              <div class="field"><label>사업자등록번호 <span class="required">*</span></label><input type="text" id="gj-bizno" placeholder="예: 123-45-67890" /></div>
+              <div class="field"><label>사업자등록번호 <span class="required">*</span></label><input type="text" id="gj-bizno" placeholder="예: 123-45-67890" maxlength="12" oninput="formatBizNo(this)" /></div>
               <div class="field"><label>계약 유형 <span class="required">*</span></label><select id="gj-type"><option value="">선택해주세요</option><option>연간계약 (1년 단위)</option><option>구간계약 (공사/프로젝트 단위)</option></select></div>
               <div class="field"><label>업종 <span class="required">*</span></label><select id="gj-industry"><option value="">선택해주세요</option><optgroup label="광업"><option value="0.00456">석탄광업</option><option value="0.00429">금속 및 비금속광업</option><option value="0.00456">채석업</option><option value="0.00403">석회석광업</option><option value="0.00056">제염업</option><option value="0.00403">기타광업</option><option value="0.00244">연탄 및 응집고체연료 생산업</option></optgroup><optgroup label="제조업"><option value="0.00092">식료품제조업</option><option value="0.00048">담배제조업</option><option value="0.00067">섬유 또는 섬유제품제조업</option><option value="0.00115">제재 및 베니어판 제조업</option><option value="0.00092">화학제품제조업</option><option value="0.00027">의약품 및 화장품향료 제조업</option><option value="0.00115">코크스 및 석탄가스 제조업</option><option value="0.00092">고무제품 제조업</option><option value="0.00077">유리제조업</option><option value="0.00092">요업 또는 토석제품 제조업</option><option value="0.00067">비금속광물제품제조업</option><option value="0.00092">금속제련업</option><option value="0.00135">금속재료품제조업</option><option value="0.00115">금속제품제조업 또는 금속가공업</option><option value="0.00092">기계기구제조업</option><option value="0.00077">전기기계기구제조업</option><option value="0.00115">선박건조 및 수리업</option><option value="0.00092">수송용기계기구제조업</option><option value="0.00048">계량기·광학기계 및 기타 정밀기구 제조업</option><option value="0.00027">수제품제조업</option><option value="0.00092">기타제조업</option></optgroup><optgroup label="전기·가스·수도사업"><option value="0.00052">전기 및 가스업</option><option value="0.00059">수도업</option></optgroup><optgroup label="건설업"><option value="0.00144">일반건설공사</option><option value="0.00214">중건설공사</option><option value="0.00189">철도 또는 궤도신설공사</option><option value="0.00118">일반건설공사(건축건설공사)</option></optgroup><optgroup label="운수·창고 및 통신업"><option value="0.00054">철도·궤도 및 삭도 운수업</option><option value="0.00052">자동차여객운수업</option><option value="0.00063">화물자동차 운수업</option><option value="0.00037">항공운수업</option><option value="0.00063">화물취급사업</option><option value="0.00052">창고업</option><option value="0.00013">통신업</option></optgroup><optgroup label="임업"><option value="0.0059">벌목업</option><option value="0.00123">기타의 임업</option></optgroup><optgroup label="어업"><option value="0.00219">해면어업</option><option value="0.00046">기타의 어업</option></optgroup><optgroup label="농업"><option value="0.000147">일반농업</option><option value="0.00068">기계화농업</option></optgroup><optgroup label="기타의 사업"><option value="0.00035">농수산물 위탁판매업</option><option value="0.00022">고층건물등의 종합관리사업</option><option value="0.00068">위생 및 유사서비스업</option><option value="0.00066">건설기계관리사업</option><option value="0.00022">골프장 및 경마장운영업</option><option value="0.000085">기타의 각종사업</option></optgroup></select></div>
               <div class="field"><label>이메일 <span class="required">*</span></label><input type="email" id="gj-email" placeholder="예: example@mail.com" /></div>
               <div class="field"><label>예상 근로자 수</label><input type="number" id="gj-workers" placeholder="예: 50" min="1" /></div>
               <div class="field"><label>연간 임금총액 <span class="sub">(원)</span></label><input type="text" id="gj-wage" placeholder="예: 500,000,000" oninput="formatNumber(this)" /></div>
-              <div class="field"><label>보상한도 <span class="sub">(선택)</span></label><select id="gj-limit"><option value="1.00">인당 1천만원 / 총 1천만원</option><option value="1.60">인당 2천만원 / 총 2천만원</option><option value="2.33" selected>인당 5천만원 / 총 5천만원 (추천)</option><option value="2.67">인당 1억원 / 총 1억원</option><option value="3.26">인당 2억원 / 총 2억원</option></select></div>
+              <div class="field"><label>보상한도 <span class="sub">(선택)</span></label><select id="gj-limit"><option value="1.00">인당 1천만원 / 총 1천만원</option><option value="1.60">인당 2천만원 / 총 2천만원</option><option value="2.33" selected>인당 5천만원 / 총 5천만원 (추천)</option><option value="2.67">인당 1억원 / 총 1억원</option><option value="3.26">인당 2억원 / 총 2억원</option><option value="3.60">인당 3억원 / 총 3억원</option><option value="4.00">인당 5억원 / 총 5억원</option><option value="custom">기타</option></select></div>
               <div class="field"><label>보험기간</label><input type="text" id="gj-period" placeholder="예: 2025.01.01 ~ 2025.12.31" /></div>
               <div class="field full"><label>요청사항 / 기타</label><textarea id="gj-detail" placeholder="공사명, 현장 위치, 하도급 여부, 특이사항 등"></textarea></div>
             </div>
@@ -856,9 +857,9 @@
           <div class="card">
             <div class="input-grid">
               <div class="field"><label>회사명 <span class="required">*</span></label><input type="text" id="gja-company" placeholder="예: (주)홍길동건설" /></div>
-              <div class="field"><label>사업자등록번호 <span class="required">*</span></label><input type="text" id="gja-bizno" placeholder="예: 123-45-67890" /></div>
+              <div class="field"><label>사업자등록번호 <span class="required">*</span></label><input type="text" id="gja-bizno" placeholder="예: 123-45-67890" maxlength="12" oninput="formatBizNo(this)" /></div>
               <div class="field"><label>계약 유형 <span class="required">*</span></label><select id="gja-type"><option value="">선택해주세요</option><option>연간계약 (1년 단위)</option><option>구간계약 (공사/프로젝트 단위)</option></select></div>
-              <div class="field"><label>업종 <span class="required">*</span></label><select id="gja-industry"><option value="">선택해주세요</option><option>건설업</option><option>제조업</option><option>물류/운송업</option><option>서비스업</option><option>기타</option></select></div>
+              <div class="field"><label>업종 <span class="required">*</span></label><select id="gja-industry"><option value="">선택해주세요</option><optgroup label="광업"><option value="0.00456">석탄광업</option><option value="0.00429">금속 및 비금속광업</option><option value="0.00456">채석업</option><option value="0.00403">석회석광업</option><option value="0.00056">제염업</option><option value="0.00403">기타광업</option><option value="0.00244">연탄 및 응집고체연료 생산업</option></optgroup><optgroup label="제조업"><option value="0.00092">식료품제조업</option><option value="0.00048">담배제조업</option><option value="0.00067">섬유 또는 섬유제품제조업</option><option value="0.00115">제재 및 베니어판 제조업</option><option value="0.00092">화학제품제조업</option><option value="0.00027">의약품 및 화장품향료 제조업</option><option value="0.00115">코크스 및 석탄가스 제조업</option><option value="0.00092">고무제품 제조업</option><option value="0.00077">유리제조업</option><option value="0.00092">요업 또는 토석제품 제조업</option><option value="0.00067">비금속광물제품제조업</option><option value="0.00092">금속제련업</option><option value="0.00135">금속재료품제조업</option><option value="0.00115">금속제품제조업 또는 금속가공업</option><option value="0.00092">기계기구제조업</option><option value="0.00077">전기기계기구제조업</option><option value="0.00115">선박건조 및 수리업</option><option value="0.00092">수송용기계기구제조업</option><option value="0.00048">계량기·광학기계 및 기타 정밀기구 제조업</option><option value="0.00027">수제품제조업</option><option value="0.00092">기타제조업</option></optgroup><optgroup label="전기·가스·수도사업"><option value="0.00052">전기 및 가스업</option><option value="0.00059">수도업</option></optgroup><optgroup label="건설업"><option value="0.00144">일반건설공사</option><option value="0.00214">중건설공사</option><option value="0.00189">철도 또는 궤도신설공사</option><option value="0.00118">일반건설공사(건축건설공사)</option></optgroup><optgroup label="운수·창고 및 통신업"><option value="0.00054">철도·궤도 및 삭도 운수업</option><option value="0.00052">자동차여객운수업</option><option value="0.00063">화물자동차 운수업</option><option value="0.00037">항공운수업</option><option value="0.00063">화물취급사업</option><option value="0.00052">창고업</option><option value="0.00013">통신업</option></optgroup><optgroup label="임업"><option value="0.0059">벌목업</option><option value="0.00123">기타의 임업</option></optgroup><optgroup label="어업"><option value="0.00219">해면어업</option><option value="0.00046">기타의 어업</option></optgroup><optgroup label="농업"><option value="0.000147">일반농업</option><option value="0.00068">기계화농업</option></optgroup><optgroup label="기타의 사업"><option value="0.00035">농수산물 위탁판매업</option><option value="0.00022">고층건물등의 종합관리사업</option><option value="0.00068">위생 및 유사서비스업</option><option value="0.00066">건설기계관리사업</option><option value="0.00022">골프장 및 경마장운영업</option><option value="0.000085">기타의 각종사업</option></optgroup></select></div>
               <div class="field"><label>담당자명 <span class="required">*</span></label><input type="text" id="gja-manager" placeholder="예: 홍길동" /></div>
               <div class="field"><label>연락처 <span class="required">*</span></label><input type="tel" id="gja-phone" placeholder="예: 010-1234-5678" /></div>
               <div class="field"><label>이메일 <span class="required">*</span></label><input type="email" id="gja-email" placeholder="예: example@mail.com" /></div>
@@ -1046,7 +1047,7 @@
       <ul>
         <li>이름: (예) 개인정보보호책임자</li>
         <li>직책: (예) 팀장</li>
-        <li>연락처: 010-8703-4894 / 이메일: newbiz@simg.kr</li>
+        <li>연락처: 1533-5013 / 이메일: newbiz@simg.kr</li>
       </ul>
 
       <h4>11. 개인정보침해 관련 상담 및 신고</h4>
@@ -1117,7 +1118,7 @@
         <li>상호: 이투엘 주식회사</li>
         <li>대표자: 유은진</li>
         <li>주소: 경기도 과천시 갈현동 545, 과천디테크타워 B동 1201호</li>
-        <li>대표전화: 010-8703-4894</li>
+        <li>대표전화: 1533-5013</li>
         <li>이메일: newbiz@simg.kr</li>
       </ul>
 
@@ -1229,18 +1230,194 @@ async function submitForm(type) {
     fileFields = ['g-bizfile', 'g-eventfile'];
   } else if (type === 'travel') {
     msgId = 'tr-msg'; loadingId = 'tr-loading'; resultId = null; consentId = 'tr-consent';
-    formFields = ['tr-company', 'tr-manager', 'tr-email', 'tr-phone', 'tr-country', 'tr-region', 'tr-purpose', 'tr-period', 'tr-plan', 'tr-count', 'tr-detail', 'tr-marketing'];
+    formFields = ['tr-company', 'tr-bizno', 'tr-manager', 'tr-email', 'tr-phone', 'tr-country', 'tr-region', 'tr-purpose', 'tr-period', 'tr-plan', 'tr-count', 'tr-detail', 'tr-marketing'];
     fileFields = ['tr-bizfile', 'tr-listfile'];
+    
+    // 해외여행자보험 필수 입력 항목 검증
+    const requiredFields = [
+      { id: 'tr-company', name: '회사명 / 단체명' },
+      { id: 'tr-manager', name: '담당자 성함' },
+      { id: 'tr-email', name: '이메일' },
+      { id: 'tr-phone', name: '대표 연락처' },
+      { id: 'tr-country', name: '여행 국가' },
+      { id: 'tr-purpose', name: '여행 목적' },
+      { id: 'tr-period', name: '여행 기간' },
+      { id: 'tr-plan', name: '가입 플랜' },
+      { id: 'tr-count', name: '총 인원수' }
+    ];
+    
+    for (const field of requiredFields) {
+      const el = document.getElementById(field.id);
+      if (!el || !el.value.trim()) {
+        alert(`${field.name}을(를) 입력해주세요.`);
+        el?.focus();
+        return;
+      }
+    }
+    
+    // 5인 이상일 때 사업자등록번호 필수 체크
+    if (currentTravelType === 'over5') {
+      const bizno = document.getElementById('tr-bizno');
+      if (!bizno || !bizno.value.trim()) {
+        alert('사업자등록번호를 입력해주세요. (5인 이상은 필수 입력 항목입니다)');
+        bizno?.focus();
+        return;
+      }
+    }
+    
+    // 해외여행자보험 이메일 유효성 검사 (필수 항목이므로 항상 체크)
+    const email = document.getElementById('tr-email');
+    if (email) {
+      const emailValue = email.value.trim();
+      if (!emailValue.includes('@')) {
+        alert('제대로된 이메일 형식으로 기재해주세요. (@ 포함 필요)');
+        email.focus();
+        email.select();
+        return;
+      }
+      const atIndex = emailValue.indexOf('@');
+      if (atIndex === 0 || atIndex === emailValue.length - 1 || !emailValue.substring(atIndex + 1).includes('.')) {
+        alert('제대로된 이메일 형식으로 기재해주세요. (@ 뒤에 도메인이 필요합니다)');
+        email.focus();
+        email.select();
+        return;
+      }
+    }
+    
+    // 해외여행자보험 필수 첨부파일 체크 (사업자등록증)
+    const bizFile = document.getElementById('tr-bizfile');
+    if (!bizFile || !bizFile.files || !bizFile.files[0]) {
+      alert('사업자등록증 파일을 첨부해주세요.');
+      bizFile?.focus();
+      return;
+    }
   } else if (type === 'geunjae') {
     msgId = 'gj-msg'; loadingId = 'gj-loading'; resultId = 'gj-result'; consentId = 'gj-consent';
     formFields = ['gj-company', 'gj-bizno', 'gj-type', 'gj-industry', 'gj-email', 'gj-workers', 'gj-wage', 'gj-period', 'gj-detail', 'gj-marketing'];
     fileFields = [];
+    
+    // 근재보험 필수 입력 항목 검증
+    const requiredFields = [
+      { id: 'gj-company', name: '회사명' },
+      { id: 'gj-bizno', name: '사업자등록번호' },
+      { id: 'gj-type', name: '계약 유형' },
+      { id: 'gj-industry', name: '업종' },
+      { id: 'gj-email', name: '이메일' }
+    ];
+    
+    for (const field of requiredFields) {
+      const el = document.getElementById(field.id);
+      if (!el || !el.value.trim()) {
+        alert(`${field.name}을(를) 입력해주세요.`);
+        el?.focus();
+        return;
+      }
+    }
+    
+    // 근재보험 이메일 유효성 검사 (필수 항목이므로 항상 체크)
+    const email = document.getElementById('gj-email');
+    if (email) {
+      const emailValue = email.value.trim();
+      if (!emailValue.includes('@')) {
+        alert('제대로된 이메일 형식으로 기재해주세요. (@ 포함 필요)');
+        email.focus();
+        email.select();
+        return;
+      }
+      const atIndex = emailValue.indexOf('@');
+      if (atIndex === 0 || atIndex === emailValue.length - 1 || !emailValue.substring(atIndex + 1).includes('.')) {
+        alert('제대로된 이메일 형식으로 기재해주세요. (@ 뒤에 도메인이 필요합니다)');
+        email.focus();
+        email.select();
+        return;
+      }
+    }
   }
   
   const consent = document.getElementById(consentId);
   if (!consent.checked) {
     alert('개인정보 수집 및 이용에 동의해주세요.');
     return;
+  }
+  
+  // 필수 입력 항목 및 이메일 유효성 검사 (국내행사, 해외행사보험)
+  if (type === 'domestic') {
+    // 국내행사보험은 필수 항목이 없으므로 이메일만 체크
+    const email = document.getElementById('d-email');
+    if (email) {
+      const emailValue = email.value.trim();
+      // 이메일 값이 있으면 @와 . 모두 체크
+      if (emailValue) {
+        if (!emailValue.includes('@')) {
+          alert('제대로된 이메일 형식으로 기재해주세요. (@ 포함 필요)');
+          email.focus();
+          email.select();
+          return;
+        }
+        const atIndex = emailValue.indexOf('@');
+        if (atIndex === 0 || atIndex === emailValue.length - 1 || !emailValue.substring(atIndex + 1).includes('.')) {
+          alert('제대로된 이메일 형식으로 기재해주세요. (@ 뒤에 도메인이 필요합니다)');
+          email.focus();
+          email.select();
+          return;
+        }
+      }
+    }
+  } else if (type === 'global') {
+    // 해외행사보험 필수 입력 항목 검증
+    const requiredFields = [
+      { id: 'g-company', name: '회사명' },
+      { id: 'g-bizno', name: '사업자등록번호' },
+      { id: 'g-type', name: '계약자 유형' },
+      { id: 'g-manager', name: '담당자명' },
+      { id: 'g-phone', name: '연락처' },
+      { id: 'g-email', name: '이메일' },
+      { id: 'g-event', name: '행사명' },
+      { id: 'g-location', name: '행사 국가/도시' },
+      { id: 'g-period', name: '행사기간' }
+    ];
+    
+    for (const field of requiredFields) {
+      const el = document.getElementById(field.id);
+      if (!el || !el.value.trim()) {
+        alert(`${field.name}을(를) 입력해주세요.`);
+        el?.focus();
+        return;
+      }
+    }
+    
+    const email = document.getElementById('g-email');
+    if (email) {
+      const emailValue = email.value.trim();
+      // 필수 항목이므로 항상 체크
+      if (!emailValue.includes('@')) {
+        alert('제대로된 이메일 형식으로 기재해주세요. (@ 포함 필요)');
+        email.focus();
+        email.select();
+        return;
+      }
+      const atIndex = emailValue.indexOf('@');
+      if (atIndex === 0 || atIndex === emailValue.length - 1 || !emailValue.substring(atIndex + 1).includes('.')) {
+        alert('제대로된 이메일 형식으로 기재해주세요. (@ 뒤에 도메인이 필요합니다)');
+        email.focus();
+        email.select();
+        return;
+      }
+    }
+    
+    // 해외행사보험 필수 첨부파일 체크
+    const bizFile = document.getElementById('g-bizfile');
+    const eventFile = document.getElementById('g-eventfile');
+    if (!bizFile || !bizFile.files || !bizFile.files[0]) {
+      alert('사업자등록증 파일을 첨부해주세요.');
+      bizFile?.focus();
+      return;
+    }
+    if (!eventFile || !eventFile.files || !eventFile.files[0]) {
+      alert('행사개요서 파일을 첨부해주세요.');
+      eventFile?.focus();
+      return;
+    }
   }
   
   const msg = document.getElementById(msgId);
@@ -1354,7 +1531,7 @@ function resetForm(type) {
     consentIds = ['g-consent', 'g-consent2', 'g-marketing'];
     allCheckboxId = 'g-all';
   } else if (type === 'travel') {
-    ids = ['tr-company', 'tr-manager', 'tr-email', 'tr-phone', 'tr-country', 'tr-region', 'tr-purpose', 'tr-period', 'tr-plan', 'tr-count', 'tr-detail'];
+    ids = ['tr-company', 'tr-bizno', 'tr-manager', 'tr-email', 'tr-phone', 'tr-country', 'tr-region', 'tr-purpose', 'tr-period', 'tr-plan', 'tr-count', 'tr-detail'];
     msgId = 'tr-msg'; resultId = null;
     consentIds = ['tr-consent', 'tr-consent2', 'tr-marketing'];
     allCheckboxId = 'tr-all';
@@ -1409,6 +1586,7 @@ async function submitApply() {
   // 필수 입력값 검증
   const requiredFields = [
     { id: 'da-company', name: '회사명' },
+    { id: 'da-bizno', name: '사업자등록번호' },
     { id: 'da-name', name: '담당자명' },
     { id: 'da-phone', name: '연락처' },
     { id: 'da-email', name: '이메일' },
@@ -1420,6 +1598,25 @@ async function submitApply() {
     if (!el || !el.value.trim()) {
       alert(`${field.name}을(를) 입력해주세요.`);
       el?.focus();
+      return;
+    }
+  }
+  
+  // 이메일 유효성 검사 (필수 항목이므로 항상 체크)
+  const email = document.getElementById('da-email');
+  if (email) {
+    const emailValue = email.value.trim();
+    if (!emailValue.includes('@')) {
+      alert('제대로된 이메일 형식으로 기재해주세요. (@ 포함 필요)');
+      email.focus();
+      email.select();
+      return;
+    }
+    const atIndex = emailValue.indexOf('@');
+    if (atIndex === 0 || atIndex === emailValue.length - 1 || !emailValue.substring(atIndex + 1).includes('.')) {
+      alert('제대로된 이메일 형식으로 기재해주세요. (@ 뒤에 도메인이 필요합니다)');
+      email.focus();
+      email.select();
       return;
     }
   }
@@ -1477,6 +1674,7 @@ async function submitApply() {
     if (result.ok) {
       msg.textContent = '✅ 가입 신청 완료! 담당자 확인 후 연락드립니다.';
       msg.style.color = '#16a34a';
+      alert('가입 신청이 완료되었습니다!\n\n담당자가 검토 후 영업일 1~3일 내에 연락드리겠습니다.\n\n추가 문의사항이 있으시면 아래 연락처로 문의해주세요.\n\nE2L보험센터\n전화: 1533-5013\n이메일: newbiz@simg.kr');
     } else {
       msg.textContent = '❌ 오류: ' + (result.error || '전송에 실패했습니다.');
       msg.style.color = '#dc2626';
@@ -1674,6 +1872,54 @@ async function submitGeunjaeApply() {
     return;
   }
   
+  // 필수 입력 항목 검증
+  const requiredFields = [
+    { id: 'gja-company', name: '회사명' },
+    { id: 'gja-bizno', name: '사업자등록번호' },
+    { id: 'gja-type', name: '계약 유형' },
+    { id: 'gja-industry', name: '업종' },
+    { id: 'gja-manager', name: '담당자명' },
+    { id: 'gja-phone', name: '연락처' },
+    { id: 'gja-email', name: '이메일' },
+    { id: 'gja-period', name: '보험기간' }
+  ];
+  
+  for (const field of requiredFields) {
+    const el = document.getElementById(field.id);
+    if (!el || !el.value.trim()) {
+      alert(`${field.name}을(를) 입력해주세요.`);
+      el?.focus();
+      return;
+    }
+  }
+  
+  // 이메일 유효성 검사 (필수 항목이므로 항상 체크)
+  const email = document.getElementById('gja-email');
+  if (email) {
+    const emailValue = email.value.trim();
+    if (!emailValue.includes('@')) {
+      alert('제대로된 이메일 형식으로 기재해주세요. (@ 포함 필요)');
+      email.focus();
+      email.select();
+      return;
+    }
+    const atIndex = emailValue.indexOf('@');
+    if (atIndex === 0 || atIndex === emailValue.length - 1 || !emailValue.substring(atIndex + 1).includes('.')) {
+      alert('제대로된 이메일 형식으로 기재해주세요. (@ 뒤에 도메인이 필요합니다)');
+      email.focus();
+      email.select();
+      return;
+    }
+  }
+  
+  // 필수 첨부파일 체크
+  const bizFile = document.getElementById('gja-bizfile');
+  if (!bizFile || !bizFile.files || !bizFile.files[0]) {
+    alert('사업자등록증 파일을 첨부해주세요.');
+    bizFile?.focus();
+    return;
+  }
+  
   const msg = document.getElementById('gja-msg');
   const loading = document.getElementById('gja-loading');
   msg.textContent = '';
@@ -1711,6 +1957,7 @@ async function submitGeunjaeApply() {
     if (result.ok) {
       msg.textContent = '✅ 가입 신청 완료! 담당자 확인 후 연락드립니다.';
       msg.style.color = '#16a34a';
+      alert('가입 신청이 완료되었습니다!\n\n담당자가 검토 후 영업일 1~3일 내에 연락드리겠습니다.\n\n추가 문의사항이 있으시면 아래 연락처로 문의해주세요.\n\nE2L보험센터\n전화: 1533-5013\n이메일: newbiz@simg.kr');
     } else {
       msg.textContent = '❌ 오류: ' + (result.error || '전송에 실패했습니다.');
       msg.style.color = '#dc2626';
@@ -1880,6 +2127,7 @@ function setTravelType(type) {
   const container = document.getElementById('traveler-items-container');
   const companyReq = document.getElementById('tr-company-req');
   const bizfileReq = document.getElementById('tr-bizfile-req');
+  const biznoReq = document.getElementById('tr-bizno-req');
   const excelText = document.getElementById('tr-excel-text');
 
   if (type === 'under5') {
@@ -1889,6 +2137,7 @@ function setTravelType(type) {
     if (listGuide) listGuide.innerText = '(성별, 성명, 주민등록번호, 직업, 휴대폰번호, 자택주소)';
     if (companyReq) companyReq.style.display = 'none';
     if (bizfileReq) bizfileReq.style.display = 'none';
+    if (biznoReq) biznoReq.style.display = 'none';
     if (excelText) excelText.innerText = '5인 미만 양식 다운로드';
   } else {
     btnUnder.classList.remove('active');
@@ -1897,6 +2146,7 @@ function setTravelType(type) {
     if (listGuide) listGuide.innerText = '(성별, 성명, 주민등록번호, 직업)';
     if (companyReq) companyReq.style.display = 'inline';
     if (bizfileReq) bizfileReq.style.display = 'inline';
+    if (biznoReq) biznoReq.style.display = 'inline';
     if (excelText) excelText.innerText = '5인 이상 양식 다운로드';
   }
 
@@ -2033,6 +2283,21 @@ function formatJumin(input) {
   let val = input.value.replace(/[^\d]/g, "");
   if (val.length > 6) {
     val = val.substring(0, 6) + "-" + val.substring(6, 13);
+  }
+  input.value = val;
+}
+
+function formatBizNo(input) {
+  let val = input.value.replace(/[^\d]/g, "");
+  // 10자리 제한
+  if (val.length > 10) {
+    val = val.substring(0, 10);
+  }
+  // 자동 하이픈 추가: 123-45-67890 형식
+  if (val.length > 5) {
+    val = val.substring(0, 3) + "-" + val.substring(3, 5) + "-" + val.substring(5);
+  } else if (val.length > 3) {
+    val = val.substring(0, 3) + "-" + val.substring(3);
   }
   input.value = val;
 }

@@ -149,7 +149,6 @@ try {
         'global-quote'   => '[E2L] 해외 행사보험 견적 신청',
         'travel-quote'   => '[E2L] 해외여행자보험 견적 신청',
         'geunjae-quote'  => '[E2L] 근재보험 견적 신청',
-        'geunjae-apply'  => '[E2L] 근재보험 가입 신청',
     );
     
     $companyField = '';
@@ -157,7 +156,6 @@ try {
     elseif (isset($data['da-company'])) $companyField = $data['da-company'];
     elseif (isset($data['g-company'])) $companyField = $data['g-company'];
     elseif (isset($data['gj-company'])) $companyField = $data['gj-company'];
-    elseif (isset($data['gja-company'])) $companyField = $data['gja-company'];
     elseif (isset($data['tr-company'])) $companyField = $data['tr-company'];
     
     $subject = isset($subjectMap[$formType]) ? $subjectMap[$formType] : '[E2L] 보험 문의';
@@ -230,27 +228,11 @@ try {
 
     // 고객 이메일 (회신용)
     $customerEmail = '';
-    if (isset($data['d-email'])) $customerEmail = trim($data['d-email']);
-    elseif (isset($data['da-email'])) $customerEmail = trim($data['da-email']);
-    elseif (isset($data['g-email'])) $customerEmail = trim($data['g-email']);
-    elseif (isset($data['gj-email'])) $customerEmail = trim($data['gj-email']);
-    elseif (isset($data['gja-email'])) $customerEmail = trim($data['gja-email']);
-    elseif (isset($data['tr-email'])) $customerEmail = trim($data['tr-email']);
-    
-    // 디버깅: 받은 데이터 확인 로그
-    $debugLogFile = $config['upload_dir'] . 'smtp_debug.log';
-    $dataCheckLog = "=== 받은 데이터 확인 (고객 이메일) ===\n";
-    $dataCheckLog .= "시간: " . date('Y-m-d H:i:s') . "\n";
-    $dataCheckLog .= "FormType: {$formType}\n";
-    $dataCheckLog .= "d-email: " . (isset($data['d-email']) ? $data['d-email'] : '(없음)') . "\n";
-    $dataCheckLog .= "da-email: " . (isset($data['da-email']) ? $data['da-email'] : '(없음)') . "\n";
-    $dataCheckLog .= "g-email: " . (isset($data['g-email']) ? $data['g-email'] : '(없음)') . "\n";
-    $dataCheckLog .= "gj-email: " . (isset($data['gj-email']) ? $data['gj-email'] : '(없음)') . "\n";
-    $dataCheckLog .= "gja-email: " . (isset($data['gja-email']) ? $data['gja-email'] : '(없음)') . "\n";
-    $dataCheckLog .= "tr-email: " . (isset($data['tr-email']) ? $data['tr-email'] : '(없음)') . "\n";
-    $dataCheckLog .= "최종 customerEmail: " . ($customerEmail ? $customerEmail : '(empty)') . "\n";
-    $dataCheckLog .= "========================\n\n";
-    @file_put_contents($debugLogFile, $dataCheckLog, FILE_APPEND | LOCK_EX);
+    if (isset($data['d-email'])) $customerEmail = $data['d-email'];
+    elseif (isset($data['da-email'])) $customerEmail = $data['da-email'];
+    elseif (isset($data['g-email'])) $customerEmail = $data['g-email'];
+    elseif (isset($data['gj-email'])) $customerEmail = $data['gj-email'];
+    elseif (isset($data['tr-email'])) $customerEmail = $data['tr-email'];
 
     // Mailer를 사용하여 이메일 발송
     $result = array('ok' => false, 'error' => 'Unknown error');
@@ -279,8 +261,7 @@ try {
         // 디버그 로그 캡처
         $debugOutput = ob_get_clean();
         if (!empty($debugOutput)) {
-            $debugLogData = "=== 담당자 이메일 발송 ===\n";
-            $debugLogData .= "시간: " . date('Y-m-d H:i:s') . "\n";
+            $debugLogData = "=== " . date('Y-m-d H:i:s') . " ===\n";
             $debugLogData .= "FormType: {$formType}\n";
             $debugLogData .= "To: {$config['to_email']}\n";
             $debugLogData .= "Result: " . ($result['ok'] ? 'OK' : 'FAILED') . "\n";
@@ -291,50 +272,18 @@ try {
             $debugLogData .= $debugOutput . "\n";
             $debugLogData .= "========================\n\n";
             @file_put_contents($debugLogFile, $debugLogData, FILE_APPEND | LOCK_EX);
-        } else {
-            // 디버그 출력이 없어도 결과는 기록
-            $debugLogData = "=== 담당자 이메일 발송 ===\n";
-            $debugLogData .= "시간: " . date('Y-m-d H:i:s') . "\n";
-            $debugLogData .= "FormType: {$formType}\n";
-            $debugLogData .= "To: {$config['to_email']}\n";
-            $debugLogData .= "Result: " . ($result['ok'] ? 'OK' : 'FAILED') . "\n";
-            if (!$result['ok']) {
-                $debugLogData .= "Error: " . (isset($result['error']) ? $result['error'] : 'Unknown') . "\n";
-            }
-            $debugLogData .= "========================\n\n";
-            @file_put_contents($debugLogFile, $debugLogData, FILE_APPEND | LOCK_EX);
         }
         
-    } catch (Exception $e) {
-        ob_end_clean(); // 버퍼 정리
-        $result = array('ok' => false, 'error' => $e->getMessage());
-        
-        // 예외 로그 저장
-        $exceptionLog = "=== " . date('Y-m-d H:i:s') . " ===\n";
-        $exceptionLog .= "Exception: " . $e->getMessage() . "\n";
-        $exceptionLog .= "File: " . $e->getFile() . " | Line: " . $e->getLine() . "\n";
-        $exceptionLog .= "========================\n\n";
-        @file_put_contents($debugLogFile, $exceptionLog, FILE_APPEND | LOCK_EX);
-    }
-
-    // 신청자 이메일 발송 (담당자 이메일 발송과 독립적으로 실행)
-    try {
-        // 신청자 이메일 발송 조건 확인 및 로그
-        $emailValid = !empty($customerEmail) ? filter_var($customerEmail, FILTER_VALIDATE_EMAIL) : false;
-        $shouldSend = !empty($customerEmail) && $emailValid;
-        
+        // 담당자에게 이메일 발송이 성공했고, 신청자 이메일이 있으면 신청자에게 신청완료 이메일 발송
+        // 디버깅: 조건 확인 로그
         $debugCheckLog = "=== 신청자 이메일 발송 조건 확인 ===\n";
-        $debugCheckLog .= "시간: " . date('Y-m-d H:i:s') . "\n";
+        $debugCheckLog .= "담당자 이메일 발송 성공: " . ($result['ok'] ? 'Y' : 'N') . "\n";
         $debugCheckLog .= "신청자 이메일 존재: " . (!empty($customerEmail) ? 'Y' : 'N') . "\n";
         $debugCheckLog .= "신청자 이메일 값: " . ($customerEmail ? $customerEmail : '(empty)') . "\n";
-        $debugCheckLog .= "이메일 유효성 검사: " . ($emailValid ? 'Y' : 'N') . "\n";
-        $debugCheckLog .= "발송 시도 여부: " . ($shouldSend ? 'Y' : 'N') . "\n";
-        $debugCheckLog .= "========================\n\n";
+        $debugCheckLog .= "이메일 유효성: " . (filter_var($customerEmail, FILTER_VALIDATE_EMAIL) ? 'Y' : 'N') . "\n";
         @file_put_contents($debugLogFile, $debugCheckLog, FILE_APPEND | LOCK_EX);
         
-        if ($shouldSend) {
-            $customerMailer = new Mailer($config['smtp_email'], $config['smtp_password']);
-            
+        if ($result['ok'] && !empty($customerEmail) && filter_var($customerEmail, FILTER_VALIDATE_EMAIL)) {
             // 고객용 신청완료 이메일 본문 생성
             $customerSubject = '[E2L 보험센터] 견적 신청이 접수되었습니다';
             
@@ -348,7 +297,7 @@ try {
             $customerHtmlBody .= "<p>추가 문의사항이 있으시면 아래 연락처로 문의해 주세요.</p>";
             $customerHtmlBody .= "<hr>";
             $customerHtmlBody .= "<p><strong>E2L 보험센터</strong><br>";
-            $customerHtmlBody .= "전화: 1533-5013<br>";
+            $customerHtmlBody .= "전화: 010-8703-4894<br>";
             $customerHtmlBody .= "이메일: newbiz@simg.kr</p>";
             $customerHtmlBody .= "</body></html>";
             
@@ -359,59 +308,58 @@ try {
             $customerTextBody .= "담당자가 검토 후 영업일 1~3일 내에 연락드리겠습니다.\n\n";
             $customerTextBody .= "추가 문의사항이 있으시면 아래 연락처로 문의해 주세요.\n\n";
             $customerTextBody .= "E2L 보험센터\n";
-            $customerTextBody .= "전화: 1533-5013\n";
+            $customerTextBody .= "전화: 010-8703-4894\n";
             $customerTextBody .= "이메일: newbiz@simg.kr\n";
             
-            // 신청자(고객)에게 신청완료 이메일 발송
-            ob_start();
-            $customerResult = $customerMailer->send(array(
-                'fromEmail'   => $config['smtp_email'],
-                'fromName'    => 'E2L 보험센터',
-                'to'          => $customerEmail,
-                'subject'     => $customerSubject,
-                'body'        => $customerHtmlBody,
-                'altBody'     => $customerTextBody,
-                'attachments' => array(), // 신청자에게는 첨부파일 없음
-                'debug'       => 2, // 디버그 로그 활성화
-            ));
-            $customerDebugOutput = ob_get_clean();
-            
-            // 신청자 이메일 발송 결과 로그
-            $customerLogData = "=== 신청자 이메일 발송 ===\n";
-            $customerLogData .= "시간: " . date('Y-m-d H:i:s') . "\n";
-            $customerLogData .= "To: {$customerEmail}\n";
-            $customerLogData .= "Result: " . ($customerResult['ok'] ? 'OK' : 'FAILED') . "\n";
-            if (!$customerResult['ok']) {
-                $customerLogData .= "Error: " . (isset($customerResult['error']) ? $customerResult['error'] : 'Unknown') . "\n";
+            // 신청자(고객)에게 신청완료 이메일 발송 (에러가 나도 담당자 이메일 발송 결과에는 영향 없음)
+            try {
+                ob_start();
+                $customerResult = $mailer->send(array(
+                    'fromEmail'   => $config['smtp_email'],
+                    'fromName'    => 'E2L 보험센터',
+                    'to'          => $customerEmail,
+                    'subject'     => $customerSubject,
+                    'body'        => $customerHtmlBody,
+                    'altBody'     => $customerTextBody,
+                    'attachments' => array(), // 신청자에게는 첨부파일 없음
+                    'debug'       => 2, // 디버그 로그 활성화
+                ));
+                $customerDebugOutput = ob_get_clean();
+                
+                // 신청자 이메일 발송 결과 로그
+                $customerLogData = "=== 신청자 이메일 발송 ===\n";
+                $customerLogData .= "시간: " . date('Y-m-d H:i:s') . "\n";
+                $customerLogData .= "To: {$customerEmail}\n";
+                $customerLogData .= "Result: " . ($customerResult['ok'] ? 'OK' : 'FAILED') . "\n";
+                if (!$customerResult['ok']) {
+                    $customerLogData .= "Error: " . (isset($customerResult['error']) ? $customerResult['error'] : 'Unknown') . "\n";
+                }
+                if (!empty($customerDebugOutput)) {
+                    $customerLogData .= "--- SMTP Debug Output ---\n";
+                    $customerLogData .= $customerDebugOutput . "\n";
+                }
+                $customerLogData .= "========================\n\n";
+                @file_put_contents($debugLogFile, $customerLogData, FILE_APPEND | LOCK_EX);
+                
+            } catch (Exception $e) {
+                ob_end_clean();
+                // 신청자 이메일 발송 실패 로그
+                $errorLog = date('Y-m-d H:i:s') . " | 신청자 이메일 발송 실패: {$customerEmail} | Error: " . $e->getMessage() . "\n";
+                $errorLog .= "File: " . $e->getFile() . " | Line: " . $e->getLine() . "\n";
+                @file_put_contents($debugLogFile, $errorLog, FILE_APPEND | LOCK_EX);
             }
-            if (!empty($customerDebugOutput)) {
-                $customerLogData .= "--- SMTP Debug Output ---\n";
-                $customerLogData .= $customerDebugOutput . "\n";
-            }
-            $customerLogData .= "========================\n\n";
-            @file_put_contents($debugLogFile, $customerLogData, FILE_APPEND | LOCK_EX);
-            
-        } else {
-            // 조건에 맞지 않아 발송하지 않은 경우 로그
-            $skipLog = "=== 신청자 이메일 발송 건너뜀 (조건 불만족) ===\n";
-            $skipLog .= "시간: " . date('Y-m-d H:i:s') . "\n";
-            $skipLog .= "이유: ";
-            if (empty($customerEmail)) $skipLog .= "신청자 이메일 없음. ";
-            if (!empty($customerEmail) && !$emailValid) $skipLog .= "이메일 형식 무효. ";
-            $skipLog .= "\n========================\n\n";
-            @file_put_contents($debugLogFile, $skipLog, FILE_APPEND | LOCK_EX);
         }
         
     } catch (Exception $e) {
-        ob_end_clean();
-        // 신청자 이메일 발송 실패 로그 (에러가 나도 담당자 이메일 발송 결과에는 영향 없음)
-        $errorLog = "=== 신청자 이메일 발송 예외 발생 ===\n";
-        $errorLog .= "시간: " . date('Y-m-d H:i:s') . "\n";
-        $errorLog .= "To: " . (isset($customerEmail) ? $customerEmail : '(unknown)') . "\n";
-        $errorLog .= "Error: " . $e->getMessage() . "\n";
-        $errorLog .= "File: " . $e->getFile() . " | Line: " . $e->getLine() . "\n";
-        $errorLog .= "========================\n\n";
-        @file_put_contents($debugLogFile, $errorLog, FILE_APPEND | LOCK_EX);
+        ob_end_clean(); // 버퍼 정리
+        $result = array('ok' => false, 'error' => $e->getMessage());
+        
+        // 예외 로그 저장
+        $exceptionLog = "=== " . date('Y-m-d H:i:s') . " ===\n";
+        $exceptionLog .= "Exception: " . $e->getMessage() . "\n";
+        $exceptionLog .= "File: " . $e->getFile() . " | Line: " . $e->getLine() . "\n";
+        $exceptionLog .= "========================\n\n";
+        @file_put_contents($debugLogFile, $exceptionLog, FILE_APPEND | LOCK_EX);
     }
 
     // 로그 저장 (항상 실행되도록)
